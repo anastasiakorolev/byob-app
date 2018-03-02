@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/anastasiakorolev/byob-app"
   },
+  "engines": {
+    "node": "6.10.2"
+  },
   "homepage": "http://dp.anastasiakorolev.com",
   "author": "Anastasia Korolev",
   "dependencies": {
