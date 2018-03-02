@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "grunt build",
-    "start": "grunt dev",
+    "web": "grunt dev",
     "dev": "grunt dev",
     "deploy:local": "shipit local deploy",
     "deploy:production": "shipit production deploy",
