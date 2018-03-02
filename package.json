@@ -9,7 +9,8 @@
     "dev": "grunt dev",
     "deploy:local": "shipit local deploy",
     "deploy:production": "shipit production deploy",
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "grunt build"
   },
   "repository": {
     "type": "git",
