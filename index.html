@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" data-framework="marionettejs">
+	<head>
+		<meta charset="utf-8">
+		<title>BYOB • Degree Project</title>
+		<link rel="stylesheet" href="css/app.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+	<body>
+		<div id="byob"></div>
+		
+		<footer id="info"></footer>
+		
+
+
+		<% if (typeof before !== "undefined") { _.forEach(before, function (content) { %><%= content %><% }) } %>
+	    <% if (typeof scripts.vendor !== "undefined") { _.forEach(scripts.vendor, function (src) { %><script src="<%= src %>" ></script><% }) } %>
+	    <% if (typeof scripts.app !== "undefined") { _.forEach(scripts.app, function (src) { %><script src="<%= src %>" ></script><% }) } %>
+	    <% if (typeof after !== "undefined") { _.forEach(after, function (content) { %><%= content %><% }) } %>
+	</body>
+</html>
