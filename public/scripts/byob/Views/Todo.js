@@ -4,7 +4,7 @@
 	//
 	// Display an individual todo item, and respond to changes
 	// that are made to the item, including marking completed.
-	Byob.Views.TodoView = Marionette.View.extend({
+	Byob.Views.TodoView = Marionette.LayoutView.extend({
 
 		tagName: 'li',
 

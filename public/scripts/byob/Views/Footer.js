@@ -1,5 +1,5 @@
 (function() {
-	Byob.Views.FooterView = Marionette.View.extend({
+	Byob.Views.FooterView = Marionette.LayoutView.extend({
 
 		template: JST.footer,
 

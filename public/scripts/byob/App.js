@@ -2,8 +2,6 @@ var Byob = (function (Backbone, Marionette) {
 
 	var App = new Marionette.Application({
 
-		template: JST.root,
-
 		regions: {
 			mainRegion: '#byob'
 		},
@@ -24,7 +22,10 @@ var Byob = (function (Backbone, Marionette) {
 	// After we initialize the app, we want to kick off the router
 	// and controller, which will handle initializing our Views
 	App.on('start', function () {
+		console.log('starting');
 		App.root = new App.Views.RootView();
+		console.log(App);
+		console.log(App.root);
     	App.mainRegion.show(App.root);
 		console.log('start');
 		var controller = new Byob.ByobController();
@@ -37,6 +38,7 @@ var Byob = (function (Backbone, Marionette) {
 	});
 
 	App.on('before:start', function () {
+		console.log('about to start');
 		// App.setRootLayout();
 	});
 
