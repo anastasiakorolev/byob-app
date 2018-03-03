@@ -12,7 +12,7 @@
 	//
 	// Display an individual todo item, and respond to changes
 	// that are made to the item, including marking completed.
-	Byob.CanvasView = Marionette.View.extend({
+	Byob.CanvasView = Marionette.LayoutView.extend({
 
 		template: JST.main_canvas,
 
@@ -57,7 +57,7 @@
 			
 			var c = renderer.domElement;
 			console.log(c);
-			//document.getElementById("canvas").appendChild(c);
+			document.getElementById("canvas").appendChild(c);
 			
 			window.addEventListener( 'resize', this.onWindowResize(), false );
 		},

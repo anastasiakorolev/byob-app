@@ -1,5 +1,5 @@
 (function() {
-	Byob.Views.HeaderView = Marionette.View.extend({
+	Byob.Views.HeaderView = Marionette.LayoutView.extend({
 
 		template: JST.header,
 

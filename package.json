@@ -5,10 +5,19 @@
   "private": true,
   "scripts": {
     "build": "grunt build",
+    "start": "node index.js",
     "dev": "grunt dev",
     "deploy:local": "shipit local deploy",
     "deploy:production": "shipit production deploy",
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "grunt build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anastasiakorolev/byob-app"
+  },
+  "engines": {
+    "node": "6.10.2"
   },
   "homepage": "http://dp.anastasiakorolev.com",
   "author": "Anastasia Korolev",
@@ -29,18 +38,16 @@
     "grunt-newer": "^1.2.0",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "~2.0.0",
-    "ini": "1.2.1",
-    "jasmine-core": "2.5.2",
-    "karma": "^0.12.37",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-coverage": "^0.4.2",
-    "karma-jasmine": "^0.3.6",
     "load-grunt-tasks": "0.4.0",
-    "node-sprite-generator": "~0.9.0",
     "shipit": "~0.1.16",
     "shipit-cli": "^1.3.0",
     "shipit-deploy": "~2.1.3",
-    "slack-node": "^0.2.0"
-  }
+    "express": "^4.15.2"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ]
 }
 
