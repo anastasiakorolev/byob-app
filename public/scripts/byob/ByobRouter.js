@@ -1,7 +1,9 @@
 (function() {
 	Byob.ByobRouter = Marionette.AppRouter.extend({
 		appRoutes: {
-			'*filter': 'filterItems'
+			'*filter': 'filterItems',
+			'': 'showCanvas',
+			'home': 'showCanvas'
 		}
 	});
 })();

@@ -11,7 +11,6 @@
 		start: function () {
 			this.showHeader(this.todoList);
 			this.showFooter(this.todoList);
-			this.showCanvas();
 			this.todoList.on('all', this.updateHiddenElements, this);
 			this.todoList.fetch();
 		},
@@ -49,6 +48,7 @@
 			Byob.root.canvas.show(canvas);
 			console.log(Byob.root.canvas);
 		},
+
 
 		// Set the filter to show complete or all items
 		filterItems: function (filter) {
