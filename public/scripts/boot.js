@@ -47,8 +47,8 @@
     request.onload = function() {
       if (request.status >= 200 && request.status < 400){
         data = JSON.parse(request.responseText);
-        files.js = data['dist/byob.min.js'];
-        files.css = data['dist/byob.min.css'];
+        files.js = data['dist/BYOB.min.js'];
+        files.css = data['dist/BYOB.min.css'];
         callback(files);
       } else {
 
