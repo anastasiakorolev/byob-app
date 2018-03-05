@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>BYOB • Degree Project</title>
-		<link rel="stylesheet" href="css/app.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<% if (typeof stylesheets !== "undefined") { _.forEach(stylesheets, function (href) { %><link class= "global-stylesheet" rel="stylesheet" href="<%= href %>" /><% }) } %>
 	</head>
 	<body>
 		<div id="byob"></div>

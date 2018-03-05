@@ -4,14 +4,12 @@ var assets = require('./assets');
 
 
 function prependScriptPath(scriptPath) {
-  console.log(path.join('public', scriptPath));
   return path.join('public', scriptPath);
 }
 
 module.exports = function (grunt) {
   var vendorScripts = assets.vendor.map(prependScriptPath);
   var byobScripts = assets.byob.map(prependScriptPath);
-  console.log(vendorScripts);
 
   var files = {
     js: '<%= dirs.dist %>/<%= pkg.name %>.js',
@@ -50,7 +48,7 @@ module.exports = function (grunt) {
       web: '<%= dirs.root %>/public',
       scripts: '<%= dirs.web %>/scripts',
       templates: '<%= dirs.web %>/templates',
-      //sass: '<%= dirs.web %>/sass',
+      sass: '<%= dirs.web %>/sass',
       js: '<%= dirs.web %>/js',
       css: '<%= dirs.web %>/css',
       //tests: '<%= dirs.root %>/test',
@@ -76,7 +74,21 @@ module.exports = function (grunt) {
           }
         },
         files: {
-          '<%= dirs.web %>/dev.html': '<%= dirs.root %>/index.html'
+          '<%= dirs.web %>/dev.html': '<%= dirs.root %>/index.tmpl'
+        }
+      },
+      prod: {
+        options: {
+          data: {
+            favicon: true,
+            scripts: {
+              app: ['<%= files.boot_min %>']
+            },
+            before: []
+          }
+        },
+        files: {
+          '<%= dirs.web %>/index.html': '<%= dirs.root %>/index.tmpl'
         }
       }
     },
@@ -136,27 +148,27 @@ module.exports = function (grunt) {
       }
     },
 
-    // sass: {
-    //   options: {
-    //     sourceMap: true
-    //   },
-    //   dist: {
-    //     files: {
-    //       '<%= files.css %>': '<%= dirs.sass %>/main.scss'
-    //     }
-    //   }
-    // },
+    sass: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          '<%= files.css %>': '<%= dirs.sass %>/main.scss'
+        }
+      }
+    },
 
-    // postcss: {
-    //   options: {
-    //     processors: [
-    //       require('autoprefixer')({browsers: ['last 2 version', 'ie 8', 'ie 9']})
-    //     ]
-    //   },
-    //   sass: {
-    //     src: '<%= files.css %>'
-    //   }
-    // },
+    postcss: {
+      options: {
+        processors: [
+          require('autoprefixer')({browsers: ['last 2 version', 'ie 8', 'ie 9']})
+        ]
+      },
+      sass: {
+        src: '<%= files.css %>'
+      }
+    },
 
     cssmin: {
       dist: {
@@ -210,8 +222,8 @@ module.exports = function (grunt) {
         tasks: ['newer:handlebars']
       },
       scripts: {
-        files: byobScripts,
-          //.concat(['!public/scripts/inception/templates.js']),
+        files: byobScripts
+          .concat(['!public/scripts/inception/templates.js']),
         tasks: ['newer:jshint']
       },
       templates: {
@@ -307,6 +319,6 @@ module.exports = function (grunt) {
   grunt.loadTasks('./tasks');
 
   grunt.registerTask('default', '', ['build']);
-  grunt.registerTask('dev', '', ['template', 'newer:jshint', 'handlebars', 'connect', 'watch']);
-  grunt.registerTask('build', 'Compile scripts and styles', ['clean:dist', 'template', 'jshint', 'handlebars', 'uglify:dist', 'cssmin:dist', 'hash:js', 'hash:css', 'uglify:bootfile']);
+  grunt.registerTask('dev', '', ['template', 'newer:jshint', 'handlebars', 'sass', 'postcss', 'connect', 'watch']);
+  grunt.registerTask('build', 'Compile scripts and styles', ['clean:dist', 'template', 'jshint', 'handlebars', 'uglify:dist', 'sass', 'postcss', 'cssmin:dist', 'hash:js', 'hash:css', 'uglify:bootfile']);
 };
