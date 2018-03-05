@@ -100,9 +100,7 @@ module.exports = function (grunt) {
       options: {
         jshintrc: '.jshintrc',
         ignores: [
-          // '<%= dirs.tests %>/vendor/**/*.js',
           '<%= dirs.scripts %>/vendor/**/*.js',
-          '<%= dirs.nm %>/**/*.js',
           '<%= dirs.scripts %>/byob/templates.js'
         ]
       },

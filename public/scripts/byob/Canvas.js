@@ -23,15 +23,16 @@
 		},
 
 		initialize: function initialize () {
-			console.log('insides canvas view');
+			this.collection = new Byob.Collections.RobotParts();
+			console.log('inside canvas view');
 			renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			
 			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10000 );
-			camera.position.z = -10;
+			camera.position.z = 40;
 			camera.position.y = 2;
-			camera.target = new THREE.Vector3( 0, 0, 1 );
+			camera.target = new THREE.Vector3( 0, -1, -1 );
 			
 			controls = new THREE.TrackballControls( camera, renderer.domElement );
 			controls.rotateSpeed = 1.0;
@@ -52,9 +53,9 @@
 			var light2 = new THREE.DirectionalLight( 0xffefef, 1.5 );
 			light2.position.set( -1, -1, -1 ).normalize();
 			scene.add( light2 );
-			var loader = new THREE.JSONLoader();
+			this.loader = new THREE.JSONLoader();
 			
-			this.loadRobot(loader);
+			this.loadRobot();
 			
 			var c = renderer.domElement;
 			console.log(c);
@@ -62,147 +63,87 @@
 			
 			window.addEventListener( 'resize', this.onWindowResize(), false );
 		},
+
+		calculatePointsOnCircle: function calculatePointsOnCircle(numPoints, r) {
+			var pointArray = [];
+			for(var i = 0; i < numPoints; i++) {
+				var x = r * Math.cos((i* (2*Math.PI))/numPoints);
+				var y = r * Math.sin((i* (2*Math.PI))/numPoints);
+				pointArray.push([x,y]);
+			}
+			return pointArray;
+		},
 		
-		loadRobot: function loadRobot(loader) {
+		loadRobot: function loadRobot() {
+			var numHeads = 0, numBodies = 0, numLegs = 0, numArms = 0;
+			_.each(this.collection.models, function(m) {
+				switch (m.type) {
+					case 'head': 
+						numHeads++;
+						break;
+					case 'body': 
+						numBodies++;
+						break;
+					case 'leg': 
+						numLegs++;
+						break;
+					case 'arm': 
+						numArms++;
+						break;
+				}
+			});
+
+			console.log(numHeads);
+			console.log(numBodies);
+
+			var headPositionsArray = this.calculatePointsOnCircle(numHeads, 20);
+			var bodyPositionsArray = this.calculatePointsOnCircle(numBodies, 20);
+
+			var heads = _.filter(this.collection.models, function(m) {
+				return m.type ==='head';
+			});
+			console.log(heads);
+			var bodies = _.filter(this.collection.models, function(m) {
+				return m.type ==='body';
+			});
+			console.log(bodies);
+			console.log(headPositionsArray);
+			console.log(headPositionsArray[0]);
+			console.log(headPositionsArray[0][0]);
+
+			console.log(bodyPositionsArray);
+			console.log(bodyPositionsArray[0]);
+			console.log(bodyPositionsArray[0][0]);
+
+			this.loadPart(heads, headPositionsArray);
+			this.loadPart(bodies, bodyPositionsArray);
 			
-			loader.load("models/IronGiantBody.json", function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[0] );
-				mesh.name = 'ig1';
-				
-				mesh.scale.set( 0.2, 0.2, 0.2 );
-				
-				mesh.position.set( 0, -2, 10);
-				mesh.rotation.x = THREE.Math.degToRad(180);
-				console.log(mesh);
-				scene.add( mesh );
-				console.log(scene);
-				renderer.render( scene, camera );
-			} );
-			
-			loader.load("models/bottomFInal.json", function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[0] );
-				mesh.name = 'beauty bot 1';
-				
-				mesh.scale.set( 3, 3, 3 );
-				
-				mesh.position.set( -20, -5, 30);
-				console.log(mesh);
-				scene.add( mesh );
-				console.log(scene);
-				renderer.render( scene, camera );
-			} );
-			loader.load("models/IronGiantBody.json", function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[1] );
-				mesh.name = 'ig2';
-				mesh.scale.set( 0.2, 0.2, 0.2 );
-				
-				mesh.position.set( 0, -2, 50);
-				mesh.rotation.x = THREE.Math.degToRad(180);
-				console.log(mesh);
-				scene.add( mesh );
-				console.log(scene);
-				renderer.render( scene, camera );
-			} );
-			loader.load("models/bottomFInal.json", function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[1] );
-				mesh.name = 'beauty bot 2';
-				mesh.scale.set( 3, 3, 3 );
-				
-				mesh.position.set( 20, -5, 30);
-				console.log(mesh);
-				scene.add( mesh );
-				console.log(scene);
-				renderer.render( scene, camera );
-			} );
-			
-			loader.load("models/IronGiantHead.json", function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[0] );
-				mesh.name = 'ig head 1';
-				
-				mesh.scale.set( 0.4, 0.4, 0.4 );
-				mesh.rotation.y = THREE.Math.degToRad(180);
-				mesh.position.set( 0, 5, 10);
-				console.log(mesh);
-				scene.add( mesh );
-				console.log(scene);
-				renderer.render( scene, camera );
-			} );
-			
-			loader.load("models/topFInal.json", function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[0] );
-				mesh.name = 'beauty bot top 1';
-				
-				mesh.scale.set( 3, 3, 3 );
-				
-				mesh.position.set( -20, 0, 30);
-				console.log(mesh);
-				scene.add( mesh );
-				console.log(scene);
-				renderer.render( scene, camera );
-			} );
-			loader.load("models/IronGiantHead.json", function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[1] );
-				mesh.name = 'ig head 2';
-				mesh.scale.set( 0.4, 0.4, 0.4 );
-				mesh.rotation.y = THREE.Math.degToRad(180);
-				mesh.position.set( 0, 5, 50);
-				console.log(mesh);
-				scene.add( mesh );
-				console.log(scene);
-				renderer.render( scene, camera );
-			} );
-			loader.load("models/topFInal.json", function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[1] );
-				mesh.name = 'beauty bot top 2';
-				mesh.scale.set( 3, 3, 3 );
-				
-				mesh.position.set( 20, 0, 30);
-				console.log(mesh);
-				scene.add( mesh );
-				console.log(scene);
-				renderer.render( scene, camera );
-			} );
-			
+		},
+
+		loadPart: function loadPart(part, array) {
+			var index = 0;
+			_.each(part, function(m) {
+				m.posx = array[index][0];
+				m.posz = array[index][1];
+
+				this.loader.load(m.src, function( geometry, materials ) {
+					var blin = materials[0];
+					var normalTexture = new THREE.MeshNormalMaterial();
+					
+					var materialArray = [blin, normalTexture];
+					
+					mesh = new THREE.Mesh( geometry, materialArray[0] );
+					mesh.name = m.name;
+					
+					mesh.scale.set( m.scale, m.scale, m.scale );
+					
+					mesh.position.set( m.posx, m.posy, m.posz+10);
+					console.log(mesh);
+					scene.add( mesh );
+					renderer.render( scene , camera );
+				}.bind(this));
+				index++;
+			}.bind(this));
 		},
 		
 		onWindowResize: function onWindowResize() {
@@ -216,7 +157,7 @@
 			console.log(value);
 			var direction = value.target.attributes[3].value;
 			
-			if (direction == 'next') {
+			if (direction === 'next') {
 		    	    if((selectedModel + 1) <= 5){
 		    	        selectedModel += 1;
 		    	    } else {
@@ -269,7 +210,7 @@
 			console.log(value);
 			var direction = value.target.attributes[3].value;
 			
-			if (direction == 'next') {
+			if (direction === 'next') {
 		    	    if((selectedHeadModel + 1) <= 9){
 		    	        selectedHeadModel += 1;
 		    	    } else {
