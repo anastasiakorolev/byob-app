@@ -24,16 +24,13 @@ var byobScripts = [
   'scripts/byob/Views/Root.js',
   'scripts/byob/ByobController.js',
   'scripts/byob/ByobRouter.js',
-  'scripts/byob/FilterState.js',
-  'scripts/byob/Collections/Todo.js',
   'scripts/byob/Collections/RobotParts.js',
-  'scripts/byob/Models/Todo.js',
   'scripts/byob/Models/RobotPart.js',
   'scripts/byob/Views/Footer.js',
   'scripts/byob/Views/Header.js',
-  'scripts/byob/Views/List.js',
-  'scripts/byob/Views/ListBody.js',
-  'scripts/byob/Views/Todo.js',
+  'scripts/byob/Views/PartViewer.js',
+  'scripts/byob/Views/Combined.js',
+  'scripts/byob/Views/Selection.js',
   'scripts/byob/Canvas.js'
 ];
 

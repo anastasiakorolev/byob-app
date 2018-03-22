@@ -22,7 +22,6 @@
 			var headerView = new Byob.Views.HeaderView();
 			var footerView = new Byob.Views.FooterView();
 			this.header.show(headerView);
-			// this.main.show(mainView);
 			this.footer.show(footerView);
 			console.log('DONE: rendering root view');
 		}

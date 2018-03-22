@@ -27,10 +27,10 @@
 			console.log('inside canvas view');
 			renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio( window.devicePixelRatio );
-			renderer.setSize( window.innerWidth, window.innerHeight );
+			//renderer.setSize( window.innerWidth, window.innerHeight );
 			
 			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10000 );
-			camera.position.z = 40;
+			camera.position.z = 60;
 			camera.position.y = 2;
 			camera.target = new THREE.Vector3( 0, -1, -1 );
 			
@@ -59,8 +59,8 @@
 			
 			var c = renderer.domElement;
 			console.log(c);
-			document.getElementById("canvas").appendChild(c);
 			
+			document.getElementById("canvas").appendChild(c);			
 			window.addEventListener( 'resize', this.onWindowResize(), false );
 		},
 
