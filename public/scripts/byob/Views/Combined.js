@@ -14,18 +14,25 @@
 			selector: '#selector'
 		},
 
+		events: {
+			'click #canvas': function (e) {
+				this.canvas.onCanvasMouseDown(e);
+			}
+		},
+
 		initialize: function () {
 			console.log('in combined view');
 		},
 
 		onShow: function () {
-			var canvas = new Byob.CanvasView();
-			canvas.render();
-			console.log(canvas);
+			this.canvas = new Byob.CanvasView();
+			this.canvas.render();
+			console.log(this.canvas);
 			console.log(Byob.root.canvas);
 			console.log(this.canvas);
 			// this.canvas.show(canvas);
 			console.log(this.ui.canvas);
+			this.ui.canvas.show(this.canvas);
 			var selection = new Byob.SelectionView();
 			this.ui.selector.show(selection);
 		}

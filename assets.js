@@ -31,6 +31,7 @@ var byobScripts = [
   'scripts/byob/Views/PartViewer.js',
   'scripts/byob/Views/Combined.js',
   'scripts/byob/Views/Selection.js',
+  'scripts/byob/Views/PartMiniCanvas.js',
   'scripts/byob/Canvas.js'
 ];
 

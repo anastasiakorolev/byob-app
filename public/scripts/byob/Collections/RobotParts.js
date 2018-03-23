@@ -6,75 +6,39 @@
 		initialize: function initialize() {
 			this.add(new Byob.Models.RobotPart({
 				type: 'head',
-				name: 'Iron Giant Head',
+				name: 'Iron Giant',
 				src: 'models/fuckthisshit.json',
-				scale: 0.4,
-				posx: 0,
-				posy: 6,
+				scale: 1,
+				posx: -18,
+				posy: 15,
 				posz: 10
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'body',
-				name: 'Iron Giant Body',
+				name: 'Iron Giant',
 				src: 'models/IronGiantBody.json',
-				scale: 0.4,
-				posx: 0,
+				scale: 1,
+				posx: -18,
 				posy: 0,
 				posz: 10
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'head',
-				name: 'Beauty Bot Head',
+				name: 'Beauty Bot',
 				src: 'models/topFInal.json',
-				scale: 4,
+				scale: 6,
 				posx: 0,
 				posy: -2,
-				posz: 50
-			}));
-			this.add(new Byob.Models.RobotPart({
-				type: 'body',
-				name: 'Beauty Bot Body',
-				src: 'models/bottomFInal.json',
-				scale: 4,
-				posx: 0,
-				posy: -2,
-				posz: 50
-			}));
-			this.add(new Byob.Models.RobotPart({
-				type: 'head',
-				name: 'Iron Giant Head 2',
-				src: 'models/fuckthisshit.json',
-				scale: 0.4,
-				posx: 0,
-				posy: 6,
 				posz: 10
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'body',
-				name: 'Iron Giant Body 2',
-				src: 'models/IronGiantBody.json',
-				scale: 0.4,
-				posx: 0,
-				posy: 0,
-				posz: 10
-			}));
-			this.add(new Byob.Models.RobotPart({
-				type: 'head',
-				name: 'Beauty Bot Head 2',
-				src: 'models/topFInal.json',
-				scale: 4,
-				posx: 0,
-				posy: -2,
-				posz: 50
-			}));
-			this.add(new Byob.Models.RobotPart({
-				type: 'body',
-				name: 'Beauty Bot Body 2',
+				name: 'Beauty Bot',
 				src: 'models/bottomFInal.json',
-				scale: 4,
+				scale: 6,
 				posx: 0,
 				posy: -2,
-				posz: 50
+				posz: 10
 			}));
 		},
 

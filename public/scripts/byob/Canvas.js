@@ -3,8 +3,10 @@
 
 	var camera, container, controls, scene, projector, renderer;
 	var mesh, mixer;
+	var mouse, raycaster;
 	var selectedModel = 2;
 	var selectedHeadModel = 6;
+	var objects = [];
 	var modelArray = ["","","obj/IronGiantBody.obj", "obj/BeautyBotBody.json", "obj/IronGiantBody.obj", "obj/BeautyBotBody.json","IG Head","obj/BeautyBotHead.json","IG Head","obj/BeautyBotHead.json"];
 
 	// Robot View
@@ -15,6 +17,10 @@
 	Byob.CanvasView = Marionette.LayoutView.extend({
 
 		template: JST.main_canvas,
+
+		ui: {
+			partViewer: '.selection-container'
+		},
 
 		events: {
 			'click .arrowBody': 'onBodyUpdate',
@@ -58,10 +64,37 @@
 			this.loadRobot();
 			
 			var c = renderer.domElement;
-			console.log(c);
-			
-			document.getElementById("canvas").appendChild(c);			
+
+			raycaster = new THREE.Raycaster();
+			mouse = new THREE.Vector2();
+
+			document.getElementById("canvas").appendChild(c);	
 			window.addEventListener( 'resize', this.onWindowResize(), false );
+		},
+
+		onCanvasMouseDown: function onCanvasMouseDown(e){
+			mouse.x = - ((renderer.domElement.clientWidth/2) - e.clientX)/renderer.domElement.clientWidth *2;//( e.clientX / renderer.domElement.clientWidth ) * 2;
+			mouse.y = ((renderer.domElement.clientHeight/2) - e.clientY)/renderer.domElement.clientHeight *2 +0.25;//( (e.clientY - 80) / renderer.domElement.clientHeight ) * 2;
+			
+			raycaster.setFromCamera( mouse, camera );
+			var intersects = raycaster.intersectObjects( objects );
+
+			if ( intersects.length > 0 ) {
+				var rand = Math.random() * 0xffffff;
+				intersects[ 0 ].object.material.color.setHex( rand );
+				scene.partType = intersects[ 0 ].object.partType;
+				renderer.render( scene , camera );
+				// _.each(scene.children, function(m) {
+				// 	if (m.name === intersects[ 0 ].object.name && m.partType === intersects[ 0 ].object.partType) {
+				// 		m.material.color.setHex( Math.random() * 0xffffff );
+				// 	}
+				// });
+				// renderer.render( scene , camera );
+				Byob.root.selector.show(new Byob.PartViewerView({
+					partType: scene.partType,
+					color: rand
+				}));
+			}
 		},
 
 		calculatePointsOnCircle: function calculatePointsOnCircle(numPoints, r) {
@@ -93,56 +126,42 @@
 				}
 			});
 
-			console.log(numHeads);
-			console.log(numBodies);
-
 			var headPositionsArray = this.calculatePointsOnCircle(numHeads, 20);
 			var bodyPositionsArray = this.calculatePointsOnCircle(numBodies, 20);
 
 			var heads = _.filter(this.collection.models, function(m) {
 				return m.type ==='head';
 			});
-			console.log(heads);
+
 			var bodies = _.filter(this.collection.models, function(m) {
 				return m.type ==='body';
 			});
-			console.log(bodies);
-			console.log(headPositionsArray);
-			console.log(headPositionsArray[0]);
-			console.log(headPositionsArray[0][0]);
 
-			console.log(bodyPositionsArray);
-			console.log(bodyPositionsArray[0]);
-			console.log(bodyPositionsArray[0][0]);
-
-			this.loadPart(heads, headPositionsArray);
-			this.loadPart(bodies, bodyPositionsArray);
+			this.loadPart(heads[0], headPositionsArray);
+			this.loadPart(bodies[0], bodyPositionsArray);
 			
 		},
 
 		loadPart: function loadPart(part, array) {
-			var index = 0;
-			_.each(part, function(m) {
-				m.posx = array[index][0];
-				m.posz = array[index][1];
+			var m = part;
 
-				this.loader.load(m.src, function( geometry, materials ) {
-					var blin = materials[0];
-					var normalTexture = new THREE.MeshNormalMaterial();
-					
-					var materialArray = [blin, normalTexture];
-					
-					mesh = new THREE.Mesh( geometry, materialArray[0] );
-					mesh.name = m.name;
-					
-					mesh.scale.set( m.scale, m.scale, m.scale );
-					
-					mesh.position.set( m.posx, m.posy, m.posz+10);
-					console.log(mesh);
-					scene.add( mesh );
-					renderer.render( scene , camera );
-				}.bind(this));
-				index++;
+			this.loader.load(m.src, function( geometry, materials ) {
+				var blin = materials[0];
+				var normalTexture = new THREE.MeshNormalMaterial();
+				
+				var materialArray = [blin, normalTexture];
+				
+				mesh = new THREE.Mesh( geometry, materialArray[0] );
+				mesh.name = m.name;
+				mesh.partType = m.type;
+				
+				mesh.scale.set( m.scale, m.scale, m.scale );
+				
+				mesh.position.set( m.posx, m.posy, m.posz);
+				
+				scene.add( mesh );
+				renderer.render( scene , camera );
+				objects.push(mesh);
 			}.bind(this));
 		},
 		
@@ -154,7 +173,6 @@
 		},
 
 		onBodyUpdate: function onBodyUpdate(value) {
-			console.log(value);
 			var direction = value.target.attributes[3].value;
 			
 			if (direction === 'next') {

@@ -57,3 +57,20 @@ body {
 		width: auto;
 	}
 }
+
+.selection-title {
+	height: 40px;
+	padding: 16px;
+
+	.choose, .part {
+		color: white;
+		margin: 0px;
+		display: inline;
+    	font-size: 20px;
+	}
+
+	.part {
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+}

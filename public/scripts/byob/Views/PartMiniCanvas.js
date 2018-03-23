@@ -1,0 +1,163 @@
+(function () {
+	'use strict';
+
+	var camera, container, controls, scene, projector, renderer;
+	var mesh, mixer;
+	var mouse, raycaster;
+	var selectedModel = 0;
+	var numParts = 0;
+	var parts = [];
+
+	// Robot View
+	// -------------------
+	//
+	// Display an individual todo item, and respond to changes
+	// that are made to the item, including marking completed.
+	Byob.PartMiniCanvasView = Marionette.LayoutView.extend({
+		template: JST.part_viewer,
+
+		events: {
+			'click .select': 'updateDefaultRobot'
+		},
+
+		initialize: function initialize (params) {
+			this.collection = new Byob.Collections.RobotParts();
+			console.log('inside canvas view');
+			renderer = new THREE.WebGLRenderer();
+			renderer.setPixelRatio( window.devicePixelRatio );
+			//renderer.setSize( window.innerWidth, window.innerHeight );
+			
+			camera = new THREE.PerspectiveCamera( 50, document.getElementById('selector').style.width / document.getElementById('selector').style.height, 0.1, 10000 );
+			camera.position.z = 60;
+			camera.position.y = 2;
+			camera.target = new THREE.Vector3( 0, -1, -1 );
+			
+			controls = new THREE.TrackballControls( camera, renderer.domElement );
+			controls.rotateSpeed = 1.0;
+			controls.zoomSpeed = 1.2;
+			controls.panSpeed = 0.8;
+			controls.noZoom = false;
+			controls.noPan = false;
+			controls.staticMoving = true;
+			controls.dynamicDampingFactor = 0.3;
+			controls.update();
+			
+			scene = new THREE.Scene();
+			scene.background = new THREE.Color( 0x808080 );
+			//
+			var light = new THREE.DirectionalLight( 0xefefff, 1.5 );
+			light.position.set( 1, 1, 1 ).normalize();
+			scene.add( light );
+			var light2 = new THREE.DirectionalLight( 0xffefef, 1.5 );
+			light2.position.set( -1, -1, -1 ).normalize();
+			scene.add( light2 );
+			this.loader = new THREE.JSONLoader();
+
+			this.partType = scene.partType;
+			if (params) {
+				this.partType = params.partType;
+				this.color = params.color;
+			}
+			console.log(this.partType);
+			
+			_.each(this.collection.models, function(m) {
+				if (m.type === this.partType) {
+					numParts++;
+					parts.push(m);
+				}
+			}.bind(this));
+
+			this.loadPart(parts[selectedModel]);
+			
+
+			var oldCanvas = document.getElementById("mini-canvas");
+			if (oldCanvas) {
+				oldCanvas.parentNode.removeChild(oldCanvas);
+			}
+
+			var c = renderer.domElement;
+			c.id = 'mini-canvas';
+			console.log(c);
+
+			document.getElementById("mini-canvas-container").appendChild(c);
+
+			window.addEventListener( 'resize', this.onWindowResize(), false );
+
+			this.animate();
+		},
+
+		onPartUpdate: function onPartUpdate(value, type) {
+
+			console.log(value);
+			var direction = value.target.attributes[3].value;
+			console.log(numParts);
+			console.log(selectedModel);
+			console.log(parts);
+			if (direction === 'next') {
+				if((selectedModel + 1) < numParts){
+					selectedModel += 1;
+				} else {
+					selectedModel = 0;
+				}
+			} else if (direction === 'previous')  {
+				if((selectedModel - 1) >= 0){
+					selectedModel -= 1;
+				} else {
+					selectedModel = numParts - 1;
+				}
+			}
+			this.loadPart(parts[selectedModel]);
+		},
+
+		loadPart: function loadPart(part) {
+			console.log(scene);
+			console.log(scene.children);
+
+			this.loader.load(part.src, function( geometry, materials ) {
+				var blin = materials[0];
+				var normalTexture = new THREE.MeshNormalMaterial();
+				
+				var materialArray = [blin, normalTexture];
+				
+				mesh = new THREE.Mesh( geometry, materialArray[0] );
+				mesh.name = part.name;
+				mesh.partType = part.type;
+				
+				mesh.scale.set( part.scale*1.5, part.scale*1.5, part.scale*1.5 );
+				
+				mesh.position.set( -10, 0, 10);
+
+				if (this.color) {
+					mesh.material.color.setHex( this.color );
+				}
+				
+				console.log(scene);
+				console.log(scene.children.length);
+				if (scene.children.length === 3) {
+					scene.children[2] = mesh;
+					scene.partType = mesh.partType;
+				} else {
+					scene.add( mesh );
+				}
+			}.bind(this));
+		},
+
+		animate: function animate() {
+			requestAnimationFrame( animate );
+			controls.update();
+			renderer.render( scene, camera );
+		},
+		
+		onWindowResize: function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			renderer.render(scene,camera);
+		},
+
+		onRender: function onRender() {
+			controls.update();
+			renderer.render( scene, camera );
+		}
+	});
+})();

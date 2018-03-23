@@ -7,7 +7,8 @@
 			header: '#header',
 			main: '#main',
 			footer: '#footer',
-			canvas: '#canvas-area'
+			canvas: '#canvas-area',
+			selector: '#selector'
 		},
 
 		initialize: function initialize () {
