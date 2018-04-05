@@ -33,9 +33,9 @@
 			console.log('inside canvas view');
 			renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio( window.devicePixelRatio );
-			//renderer.setSize( window.innerWidth, window.innerHeight );
+			renderer.setSize( window.innerWidth/2, window.innerHeight );
 			
-			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10000 );
+			camera = new THREE.PerspectiveCamera( 50, (window.innerWidth/2) / (window.innerHeight), 0.1, 10000 );
 			camera.position.z = 60;
 			camera.position.y = 2;
 			camera.target = new THREE.Vector3( 0, -1, -1 );
@@ -68,8 +68,10 @@
 			raycaster = new THREE.Raycaster();
 			mouse = new THREE.Vector2();
 
+			this.onRender();
+
 			document.getElementById("canvas").appendChild(c);	
-			window.addEventListener( 'resize', this.onWindowResize(), false );
+			// window.addEventListener( 'resize', this.onWindowResize(), false );
 		},
 
 		onCanvasMouseDown: function onCanvasMouseDown(e){
@@ -90,6 +92,7 @@
 				// 	}
 				// });
 				// renderer.render( scene , camera );
+				console.log(scene.partType);
 				Byob.root.selector.show(new Byob.PartViewerView({
 					partType: scene.partType,
 					color: rand
@@ -136,9 +139,9 @@
 			var bodies = _.filter(this.collection.models, function(m) {
 				return m.type ==='body';
 			});
-
-			this.loadPart(heads[0], headPositionsArray);
-			this.loadPart(bodies[0], bodyPositionsArray);
+			console.log(Byob.Robot);
+			this.loadPart(Byob.Robot.head, headPositionsArray);
+			this.loadPart(Byob.Robot.body, bodyPositionsArray);
 			
 		},
 
@@ -166,10 +169,10 @@
 		},
 		
 		onWindowResize: function onWindowResize() {
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			renderer.render(scene,camera);
+			// camera.aspect = window.innerHeight / window.innerWidth ;
+			// camera.updateProjectionMatrix();
+			// renderer.setSize( window.innerHeight, window.innerWidth );
+			// renderer.render(scene,camera);
 		},
 
 		onBodyUpdate: function onBodyUpdate(value) {

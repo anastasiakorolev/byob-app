@@ -9,18 +9,18 @@
 				name: 'Iron Giant',
 				src: 'models/fuckthisshit.json',
 				scale: 1,
-				posx: -18,
+				posx: 0,
 				posy: 15,
-				posz: 10
+				posz: 0
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'body',
 				name: 'Iron Giant',
 				src: 'models/IronGiantBody.json',
 				scale: 1,
-				posx: -18,
+				posx: 0,
 				posy: 0,
-				posz: 10
+				posz: 0
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'head',
@@ -28,8 +28,8 @@
 				src: 'models/topFInal.json',
 				scale: 6,
 				posx: 0,
-				posy: -2,
-				posz: 10
+				posy: 0,
+				posz: 0
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'body',
@@ -37,8 +37,8 @@
 				src: 'models/bottomFInal.json',
 				scale: 6,
 				posx: 0,
-				posy: -2,
-				posz: 10
+				posy: 0,
+				posz: 0
 			}));
 		},
 

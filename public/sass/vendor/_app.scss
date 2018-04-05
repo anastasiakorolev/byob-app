@@ -83,6 +83,7 @@ p{
 #canvas {
     display: inline;	
 	canvas {
+		width: 65% !important;
 		height: auto !important;
 	}
 }
@@ -98,12 +99,27 @@ p{
 	right: 0px;
 
 	#mini-canvas-container {
-		width: 90%;
-		margin: 0px auto;
+		width: 100%;
+		overflow: hidden;
 		canvas {
-			width: 160% !important;
-			height: auto !important;
+			height: 100% !important;
+			position: relative;
+			left: -92.5%;
 		}
 	}
 	
+}
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 100;
+}
+
+.left {
+	left: 5%;
+}
+
+.right {
+	right: 5%;
 }

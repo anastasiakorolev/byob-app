@@ -66,11 +66,25 @@ body {
 		color: white;
 		margin: 0px;
 		display: inline;
-    	font-size: 20px;
+		font-size: 20px;
 	}
 
 	.part {
 		text-transform: uppercase;
 		font-weight: 500;
 	}
+}
+
+.part-selection-button {
+	background-color: lightgrey;
+	width: 75px;
+	height: 35px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border-radius: 3px;
+	position: absolute;
+	top: 90%;
+	right: 5%;
+	z-index: 100;
 }

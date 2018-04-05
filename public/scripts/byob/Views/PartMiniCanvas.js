@@ -16,59 +16,13 @@
 	Byob.PartMiniCanvasView = Marionette.LayoutView.extend({
 		template: JST.part_viewer,
 
-		events: {
-			'click .select': 'updateDefaultRobot'
-		},
-
 		initialize: function initialize (params) {
 			this.collection = new Byob.Collections.RobotParts();
 			console.log('inside canvas view');
-			renderer = new THREE.WebGLRenderer();
+			renderer = new THREE.WebGLRenderer({alpha: true});
 			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setClearColor( 0x000000, 0 );
 			//renderer.setSize( window.innerWidth, window.innerHeight );
-			
-			camera = new THREE.PerspectiveCamera( 50, document.getElementById('selector').style.width / document.getElementById('selector').style.height, 0.1, 10000 );
-			camera.position.z = 60;
-			camera.position.y = 2;
-			camera.target = new THREE.Vector3( 0, -1, -1 );
-			
-			controls = new THREE.TrackballControls( camera, renderer.domElement );
-			controls.rotateSpeed = 1.0;
-			controls.zoomSpeed = 1.2;
-			controls.panSpeed = 0.8;
-			controls.noZoom = false;
-			controls.noPan = false;
-			controls.staticMoving = true;
-			controls.dynamicDampingFactor = 0.3;
-			controls.update();
-			
-			scene = new THREE.Scene();
-			scene.background = new THREE.Color( 0x808080 );
-			//
-			var light = new THREE.DirectionalLight( 0xefefff, 1.5 );
-			light.position.set( 1, 1, 1 ).normalize();
-			scene.add( light );
-			var light2 = new THREE.DirectionalLight( 0xffefef, 1.5 );
-			light2.position.set( -1, -1, -1 ).normalize();
-			scene.add( light2 );
-			this.loader = new THREE.JSONLoader();
-
-			this.partType = scene.partType;
-			if (params) {
-				this.partType = params.partType;
-				this.color = params.color;
-			}
-			console.log(this.partType);
-			
-			_.each(this.collection.models, function(m) {
-				if (m.type === this.partType) {
-					numParts++;
-					parts.push(m);
-				}
-			}.bind(this));
-
-			this.loadPart(parts[selectedModel]);
-			
 
 			var oldCanvas = document.getElementById("mini-canvas");
 			if (oldCanvas) {
@@ -80,6 +34,45 @@
 			console.log(c);
 
 			document.getElementById("mini-canvas-container").appendChild(c);
+			
+			camera = new THREE.PerspectiveCamera( 50, document.getElementById('selector').style.width / document.getElementById('selector').style.height, 0.1, 10000 );
+			camera.position.z = 60;
+			camera.position.y = 2;
+			camera.target = new THREE.Vector3( 0, -1, -1 );
+			
+			controls = new THREE.TrackballControls( camera, renderer.domElement );
+			// controls.rotateSpeed = 1.0;
+			// controls.zoomSpeed = 1.2;
+			// controls.panSpeed = 0.8;
+			// controls.noZoom = false;
+			controls.noPan = true;
+			controls.minDistance = 50;
+			controls.maxDistance = 140;
+			// controls.staticMoving = true;
+			// controls.dynamicDampingFactor = 0.3;
+			controls.update();
+			
+			scene = new THREE.Scene();
+			// scene.background = new THREE.Color( 0x808080 );
+			//
+			var light = new THREE.DirectionalLight( 0xefefff, 1.5 );
+			light.position.set( 1, 1, 1 ).normalize();
+			scene.add( light );
+			var light2 = new THREE.DirectionalLight( 0xffefef, 1.5 );
+			light2.position.set( -1, -1, -1 ).normalize();
+			scene.add( light2 );
+			this.loader = new THREE.JSONLoader();
+
+			this.partType = scene.partType;
+			console.log(params);
+			if (params) {
+				this.partType = params.partType;
+				this.color = params.color;
+			}
+			console.log(this.partType);
+
+			this.loadPart(this.partType);
+			renderer.render( scene, camera );
 
 			window.addEventListener( 'resize', this.onWindowResize(), false );
 
@@ -87,6 +80,15 @@
 		},
 
 		onPartUpdate: function onPartUpdate(value, type) {
+			numParts = 0;
+			parts = [];
+			this.collection = new Byob.Collections.RobotParts();
+			_.each(this.collection.models, function(m) {
+				if (m.type === type) {
+					numParts++;
+					parts.push(m);
+				}
+			}.bind(this));
 
 			console.log(value);
 			var direction = value.target.attributes[3].value;
@@ -106,26 +108,47 @@
 					selectedModel = numParts - 1;
 				}
 			}
-			this.loadPart(parts[selectedModel]);
+			this.loadPart(type);
+			this.animate();
 		},
 
-		loadPart: function loadPart(part) {
+		loadPart: function loadPart(type) {
 			console.log(scene);
 			console.log(scene.children);
+			numParts = 0;
+			parts = [];
+			this.collection = new Byob.Collections.RobotParts();
+			console.log(this.collection);
+			_.each(this.collection.models, function(m) {
+				console.log(m);
+				console.log(m.type);
+				console.log(type);
+				if (m.type === type) {
+					numParts++;
+					parts.push(m);
+				}
+			}.bind(this));
 
-			this.loader.load(part.src, function( geometry, materials ) {
+			this.part = parts[selectedModel];
+			
+			console.log(parts);
+			console.log(selectedModel);
+			console.log(parts[selectedModel]);
+			console.log(this.part);
+
+			this.loader.load(this.part.src, function( geometry, materials ) {
 				var blin = materials[0];
 				var normalTexture = new THREE.MeshNormalMaterial();
 				
 				var materialArray = [blin, normalTexture];
 				
 				mesh = new THREE.Mesh( geometry, materialArray[0] );
-				mesh.name = part.name;
-				mesh.partType = part.type;
+				mesh.name = this.part.name;
+				mesh.partType = this.part.type;
 				
-				mesh.scale.set( part.scale*1.5, part.scale*1.5, part.scale*1.5 );
+				mesh.scale.set( this.part.scale*1.5, this.part.scale*1.5, this.part.scale*1.5 );
 				
-				mesh.position.set( -10, 0, 10);
+				mesh.position.set( 0, 0, 0 );
 
 				if (this.color) {
 					mesh.material.color.setHex( this.color );
@@ -140,6 +163,16 @@
 					scene.add( mesh );
 				}
 			}.bind(this));
+			controls.update();
+			renderer.render( scene, camera );
+		},
+
+		updateDefaultRobot: function updateDefaultRobot() {
+			console.log(Byob.Robot[this.partType]);
+			Byob.Robot[this.partType] = this.part;
+			console.log(Byob.Robot[this.partType]);
+			var controller = new Byob.ByobController();
+			controller.showSelector();
 		},
 
 		animate: function animate() {

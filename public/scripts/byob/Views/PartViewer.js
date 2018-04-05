@@ -10,13 +10,16 @@
 		template: JST.part_viewer,
 
 		events: {
-			'click .arrow': function(e) { this.miniCanvas.onPartUpdate(e, this.partType); }
+			'click .arrow': function(e) { this.miniCanvas.onPartUpdate(e, this.partType); },
+			'click .part-selection-button': function(e) { this.miniCanvas.updateDefaultRobot(); }
 		},
 
 		initialize: function (params) {
 			this.partType = params.partType;
 			this.color = params.color;
 			console.log(this.partType);
+
+			
 		},
 
 		templateHelpers: function () {
@@ -27,11 +30,13 @@
 		},
 
 		onShow: function () {
-			this.miniCanvas = new Byob.PartMiniCanvasView({
+			this.params = {
 				partType: this.partType,
 				color: this.color
-			});
-			this.miniCanvas.initialize();
+			};
+
+			this.miniCanvas = new Byob.PartMiniCanvasView(this.params);
+			this.miniCanvas.initialize(this.params);
 		}
 		
 	});

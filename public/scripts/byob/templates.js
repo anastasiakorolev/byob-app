@@ -21,7 +21,7 @@ this["JST"]["part_viewer"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"mai
 
   return "<div class=\"selection-title\">\n<div class=\"choose\">Choose your <p class=\"part\">"
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"title","hash":{},"data":data}) : helper)))
-    + "</p>:</div>\n</div>\n<img class=\"arrow\" src=\"images/leftArrow.png\" style=\"width: 60px;\" value=\"previous\"/>\n<img class=\"arrow\" src=\"images/rightArrow.png\" style=\"width: 60px;\" value=\"next\"/>\n<button class=\"button part-selection-button\"></button>\n<div id=\"mini-canvas-container\"></div>";
+    + "</p>:</div>\n</div>\n<img class=\"arrow left\" src=\"images/leftArrow.png\" style=\"width: 60px;\" value=\"previous\"/>\n<img class=\"arrow right\" src=\"images/rightArrow.png\" style=\"width: 60px;\" value=\"next\"/>\n<button class=\"button part-selection-button\">Select</button>\n<div id=\"mini-canvas-container\"></div>";
 },"useData":true});
 
 this["JST"]["root"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
