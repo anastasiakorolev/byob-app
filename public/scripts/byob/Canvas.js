@@ -112,8 +112,7 @@
 				texture.wrapT = THREE.RepeatWrapping;
 				texture.repeat.set( 4, 4 );
 				var material = new THREE.MeshDepthMaterial({
-					map: texture,
-					wireframe: true
+					map: texture
 				});
 				
 				geometry.name = m.name;
