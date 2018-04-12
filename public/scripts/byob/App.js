@@ -53,7 +53,7 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/IronGiantBody.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 0,
+			posy: 15,
 			posz: 0
 		});
 		App.Robot.lArm = new Byob.Models.RobotPart({
@@ -62,7 +62,7 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/leftArmObj.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 0,
+			posy: 15,
 			posz: 0
 		});
 		App.Robot.rArm = new Byob.Models.RobotPart({
@@ -71,7 +71,7 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/rightArmObj.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 0,
+			posy: 15,
 			posz: 0
 		});
 		App.Robot.lLeg = new Byob.Models.RobotPart({
@@ -80,7 +80,7 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/leftLegObj.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 0,
+			posy: 15,
 			posz: 0
 		});
 		App.Robot.rLeg = new Byob.Models.RobotPart({
@@ -89,7 +89,7 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/rightLegObj.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 0,
+			posy: 15,
 			posz: 0
 		});
 		console.log(App.Robot);
