@@ -118,6 +118,7 @@
 					
 					mesh.position.set( m.posx, m.posy, m.posz);
 					
+					console.log(geometry);
 					scene.add( geometry );
 					renderer.render( scene , camera );
 					objects.push(geometry);
