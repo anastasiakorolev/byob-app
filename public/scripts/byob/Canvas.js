@@ -111,7 +111,7 @@
 				texture.wrapS = THREE.RepeatWrapping;
 				texture.wrapT = THREE.RepeatWrapping;
 				texture.repeat.set( 100, 100 );
-				var material = new THREE.MeshPhongMaterial({shininess: 1});
+				var material = new THREE.MeshPhongMaterial({shininess: 1, color: Math.random() * 0xffffff});
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
