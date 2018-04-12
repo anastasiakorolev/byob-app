@@ -107,14 +107,14 @@
 			console.log('loading part');
 			var objLoader = new THREE.ObjectLoader();
 			objLoader.load(m.src, function( geometry ) {
-				var material = new THREE.MeshDepthMaterial();
-				
 				var texture = new THREE.TextureLoader().load( "images/BatteredRobot.jpg" );
 				texture.wrapS = THREE.RepeatWrapping;
 				texture.wrapT = THREE.RepeatWrapping;
 				texture.repeat.set( 4, 4 );
-
-				material.map.set(texture);
+				var material = new THREE.MeshDepthMaterial({
+					map: texture,
+					wireframe: true
+				});
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
