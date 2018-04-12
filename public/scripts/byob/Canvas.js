@@ -127,7 +127,7 @@
 				console.log(geometry);
 				scene.add( geometry );
 				renderer.render( scene , camera );
-				objects.push(geometry);
+				objects.push(geometry.children[0]);
 			}.bind(this));
 			// } else {
 			// 	this.loader.load(m.src, function( geometry, materials ) {
