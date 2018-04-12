@@ -38,15 +38,15 @@ var Byob = (function (Backbone, Marionette) {
     	App.mainRegion.show(App.root);
 		console.log('start');
 
-		// App.Robot.head = new Byob.Models.RobotPart({
-		// 	type: 'head',
-		// 	name: 'Iron Giant',
-		// 	src: 'models/fuckthisshit.json',
-		// 	scale: 1,
-		// 	posx: 0,
-		// 	posy: 15,
-		// 	posz: 0
-		// });
+		App.Robot.head = new Byob.Models.RobotPart({
+			type: 'head',
+			name: 'Iron Giant',
+			src: 'models/fuckthisshit.json',
+			scale: 1,
+			posx: 0,
+			posy: 15,
+			posz: 0
+		});
 		App.Robot.body = new Byob.Models.RobotPart({
 			type: 'body',
 			name: 'Iron Giant',
