@@ -80,7 +80,7 @@
 
 			if ( intersects.length > 0 ) {
 				var rand = Math.random() * 0xffffff;
-				intersects[ 0 ].object.children[0].material.color.setHex( rand );
+				intersects[ 0 ].object.material.color.setHex( rand );
 				scene.partType = intersects[ 0 ].object.partType;
 				renderer.render( scene , camera );
 				console.log(scene.partType);
