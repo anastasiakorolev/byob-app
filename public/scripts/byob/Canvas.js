@@ -105,24 +105,47 @@
 		loadPart: function loadPart(part) {
 			var m = part;
 			console.log('loading part');
-			this.loader.load(m.src, function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
-				
-				var materialArray = [blin, normalTexture];
-				
-				mesh = new THREE.Mesh( geometry, materialArray[0] );
-				mesh.name = m.name;
-				mesh.partType = m.type;
-				
-				mesh.scale.set( m.scale, m.scale, m.scale );
-				
-				mesh.position.set( m.posx, m.posy, m.posz);
-				
-				scene.add( mesh );
-				renderer.render( scene , camera );
-				objects.push(mesh);
-			}.bind(this));
+			var objLoader = new THREE.ObjectLoader();
+			if (m.type === 'rArm'|| m.type === 'lArm'|| m.type === 'rLeg'|| m.type === 'lLeg') {
+				objLoader.load(m.src, function( geometry, materials ) {
+					var blin = materials[0];
+					var normalTexture = new THREE.MeshNormalMaterial();
+					
+					var materialArray = [blin, normalTexture];
+					
+					mesh = new THREE.Mesh( geometry, materialArray[0] );
+					mesh.name = m.name;
+					mesh.partType = m.type;
+					
+					mesh.scale.set( m.scale, m.scale, m.scale );
+					
+					mesh.position.set( m.posx, m.posy, m.posz);
+					
+					scene.add( mesh );
+					renderer.render( scene , camera );
+					objects.push(mesh);
+				}.bind(this));
+			} else {
+				this.loader.load(m.src, function( geometry, materials ) {
+					var blin = materials[0];
+					var normalTexture = new THREE.MeshNormalMaterial();
+					
+					var materialArray = [blin, normalTexture];
+					
+					mesh = new THREE.Mesh( geometry, materialArray[0] );
+					mesh.name = m.name;
+					mesh.partType = m.type;
+					
+					mesh.scale.set( m.scale, m.scale, m.scale );
+					
+					mesh.position.set( m.posx, m.posy, m.posz);
+					
+					scene.add( mesh );
+					renderer.render( scene , camera );
+					objects.push(mesh);
+				}.bind(this));
+			}
+
 		},
 		
 		// onDownload: function onDownload() {
