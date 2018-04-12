@@ -114,7 +114,7 @@
 				texture.wrapT = THREE.RepeatWrapping;
 				texture.repeat.set( 4, 4 );
 
-				material.map = texture;
+				material.map.set(texture);
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
