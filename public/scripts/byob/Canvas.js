@@ -76,11 +76,11 @@
 			mouse.y = ((renderer.domElement.clientHeight/2) - e.clientY)/renderer.domElement.clientHeight *2 +0.25;//( (e.clientY - 80) / renderer.domElement.clientHeight ) * 2;
 			
 			raycaster.setFromCamera( mouse, camera );
-			var intersects = raycaster.intersectObjects( objects );
+			var intersects = raycaster.intersectObjects( objects.children[0] );
 
 			if ( intersects.length > 0 ) {
 				var rand = Math.random() * 0xffffff;
-				intersects[ 0 ].object.material.color.setHex( rand );
+				intersects[ 0 ].object.children[0].material.color.setHex( rand );
 				scene.partType = intersects[ 0 ].object.partType;
 				renderer.render( scene , camera );
 				console.log(scene.partType);
@@ -127,7 +127,7 @@
 				console.log(geometry);
 				scene.add( geometry );
 				renderer.render( scene , camera );
-				objects.push(geometry.children[0]);
+				objects.push(geometry);
 			}.bind(this));
 			// } else {
 			// 	this.loader.load(m.src, function( geometry, materials ) {

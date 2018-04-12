@@ -41,20 +41,13 @@
 			camera.target = new THREE.Vector3( 0, -1, -1 );
 			
 			controls = new THREE.TrackballControls( camera, renderer.domElement );
-			// controls.rotateSpeed = 1.0;
-			// controls.zoomSpeed = 1.2;
-			// controls.panSpeed = 0.8;
-			// controls.noZoom = false;
 			controls.noPan = true;
 			controls.minDistance = 50;
 			controls.maxDistance = 140;
-			// controls.staticMoving = true;
-			// controls.dynamicDampingFactor = 0.3;
+
 			controls.update();
 			
 			scene = new THREE.Scene();
-			// scene.background = new THREE.Color( 0x808080 );
-			//
 			var light = new THREE.DirectionalLight( 0xefefff, 1.5 );
 			light.position.set( 1, 1, 1 ).normalize();
 			scene.add( light );
