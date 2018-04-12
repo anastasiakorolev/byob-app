@@ -109,11 +109,13 @@
 			objLoader.load(m.src, function( geometry ) {
 				var material = new THREE.MeshDepthMaterial();
 				
-				// mesh = new THREE.Mesh( geometry, material );
+				
 				geometry.name = m.name;
 				geometry.partType = m.type;
 
-				console.log(geometry.material);
+				console.log(geometry.children[0].material);
+				geometry.children[0].material = material;
+				console.log(geometry.children[0].material);
 				
 				geometry.scale.set( m.scale, m.scale, m.scale );
 				
