@@ -107,13 +107,10 @@
 			console.log('loading part');
 			var objLoader = new THREE.ObjectLoader();
 			if (m.type === 'rArm'|| m.type === 'lArm'|| m.type === 'rLeg'|| m.type === 'lLeg') {
-				objLoader.load(m.src, function( geometry, materials ) {
-					var blin = materials[0];
-					var normalTexture = new THREE.MeshNormalMaterial();
+				objLoader.load(m.src, function( geometry ) {
+					var material = new THREE.MeshDepthMaterial();
 					
-					var materialArray = [blin, normalTexture];
-					
-					mesh = new THREE.Mesh( geometry, materialArray[0] );
+					mesh = new THREE.Mesh( geometry, material );
 					mesh.name = m.name;
 					mesh.partType = m.type;
 					
