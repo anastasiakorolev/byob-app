@@ -110,10 +110,8 @@
 				var texture = new THREE.TextureLoader().load( "images/BatteredRobot.jpg" );
 				texture.wrapS = THREE.RepeatWrapping;
 				texture.wrapT = THREE.RepeatWrapping;
-				texture.repeat.set( 4, 4 );
-				var material = new THREE.MeshDepthMaterial({
-					map: texture
-				});
+				texture.repeat.set( 100, 100 );
+				var material = new THREE.MeshNormalMaterial();
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
