@@ -38,19 +38,55 @@ var Byob = (function (Backbone, Marionette) {
     	App.mainRegion.show(App.root);
 		console.log('start');
 
-		App.Robot.head = new Byob.Models.RobotPart({
-			type: 'head',
-			name: 'Iron Giant',
-			src: 'models/fuckthisshit.json',
-			scale: 1,
-			posx: 0,
-			posy: 15,
-			posz: 0
-		});
+		// App.Robot.head = new Byob.Models.RobotPart({
+		// 	type: 'head',
+		// 	name: 'Iron Giant',
+		// 	src: 'models/fuckthisshit.json',
+		// 	scale: 1,
+		// 	posx: 0,
+		// 	posy: 15,
+		// 	posz: 0
+		// });
 		App.Robot.body = new Byob.Models.RobotPart({
 			type: 'body',
 			name: 'Iron Giant',
 			src: 'models/IronGiantBody.json',
+			scale: 1,
+			posx: 0,
+			posy: 0,
+			posz: 0
+		});
+		App.Robot.lArm = new Byob.Models.RobotPart({
+			type: 'lArm',
+			name: 'Iron Giant',
+			src: 'models/LeftArmObj.json',
+			scale: 1,
+			posx: 0,
+			posy: 0,
+			posz: 0
+		});
+		App.Robot.rArm = new Byob.Models.RobotPart({
+			type: 'rArm',
+			name: 'Iron Giant',
+			src: 'models/RightArmObj.json',
+			scale: 1,
+			posx: 0,
+			posy: 0,
+			posz: 0
+		});
+		App.Robot.lLeg = new Byob.Models.RobotPart({
+			type: 'lLeg',
+			name: 'Iron Giant',
+			src: 'models/LeftLegObj.json',
+			scale: 1,
+			posx: 0,
+			posy: 0,
+			posz: 0
+		});
+		App.Robot.rLeg = new Byob.Models.RobotPart({
+			type: 'rLeg',
+			name: 'Iron Giant',
+			src: 'models/RightLegObj.json',
 			scale: 1,
 			posx: 0,
 			posy: 0,
