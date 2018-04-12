@@ -54,7 +54,7 @@
 			var light2 = new THREE.DirectionalLight( 0xffefef, 1.5 );
 			light2.position.set( -1, -1, -1 ).normalize();
 			scene.add( light2 );
-			this.loader = new THREE.JSONLoader();
+			this.loader = new THREE.ObjectLoader();
 
 			this.partType = scene.partType;
 			console.log(params);
@@ -129,31 +129,26 @@
 			console.log(parts[selectedModel]);
 			console.log(this.part);
 
-			this.loader.load(this.part.src, function( geometry, materials ) {
-				var blin = materials[0];
-				var normalTexture = new THREE.MeshNormalMaterial();
+			this.loader.load(this.part.src, function( geometry ) {
 				
-				var materialArray = [blin, normalTexture];
+				geometry.name = this.part.name;
+				geometry.partType = this.part.type;
 				
-				mesh = new THREE.Mesh( geometry, materialArray[0] );
-				mesh.name = this.part.name;
-				mesh.partType = this.part.type;
+				geometry.scale.set( this.part.scale*1.5, this.part.scale*1.5, this.part.scale*1.5 );
 				
-				mesh.scale.set( this.part.scale*1.5, this.part.scale*1.5, this.part.scale*1.5 );
-				
-				mesh.position.set( 0, 0, 0 );
+				geometry.position.set( 0, 0, 0 );
 
 				if (this.color) {
-					mesh.material.color.setHex( this.color );
+					geometry.children[0].material.color.setHex( this.color );
 				}
 				
 				console.log(scene);
 				console.log(scene.children.length);
 				if (scene.children.length === 3) {
-					scene.children[2] = mesh;
-					scene.partType = mesh.partType;
+					scene.children[2] = geometry;
+					scene.partType = geometry.partType;
 				} else {
-					scene.add( mesh );
+					scene.add( geometry );
 				}
 			}.bind(this));
 			controls.update();
