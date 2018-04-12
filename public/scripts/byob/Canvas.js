@@ -50,12 +50,12 @@
 			scene = new THREE.Scene();
 			scene.background = new THREE.Color( 0xf5f5f5 );
 			//
-			var light = new THREE.DirectionalLight( 0xefefff, 1.5 );
-			light.position.set( 1, 1, 1 ).normalize();
-			scene.add( light );
-			var light2 = new THREE.DirectionalLight( 0xffefef, 1.5 );
-			light2.position.set( -1, -1, -1 ).normalize();
-			scene.add( light2 );
+			// var light = new THREE.DirectionalLight( 0xefefff, 1.5 );
+			// light.position.set( 1, 1, 1 ).normalize();
+			// scene.add( light );
+			// var light2 = new THREE.DirectionalLight( 0xffefef, 1.5 );
+			// light2.position.set( -1, -1, -1 ).normalize();
+			// scene.add( light2 );
 			this.loader = new THREE.JSONLoader();
 			
 			this.loadRobot();
