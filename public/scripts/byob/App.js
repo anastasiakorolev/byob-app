@@ -41,7 +41,7 @@ var Byob = (function (Backbone, Marionette) {
 		App.Robot.head = new Byob.Models.RobotPart({
 			type: 'head',
 			name: 'Iron Giant',
-			src: 'models/fuckthisshit.json',
+			src: 'obj/IronGiantHead.obj',
 			scale: 0.5,
 			posx: 0,
 			posy: 15,
@@ -50,7 +50,7 @@ var Byob = (function (Backbone, Marionette) {
 		App.Robot.body = new Byob.Models.RobotPart({
 			type: 'body',
 			name: 'Iron Giant',
-			src: 'models/IronGiantBody.json',
+			src: 'obj/IronGiantBody.obj',
 			scale: 0.5,
 			posx: 0,
 			posy: 0,

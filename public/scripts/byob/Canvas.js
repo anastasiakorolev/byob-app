@@ -106,43 +106,44 @@
 			var m = part;
 			console.log('loading part');
 			var objLoader = new THREE.ObjectLoader();
-			if (m.type === 'rArm'|| m.type === 'lArm'|| m.type === 'rLeg'|| m.type === 'lLeg') {
-				objLoader.load(m.src, function( geometry ) {
-					var material = new THREE.MeshDepthMaterial();
+			objLoader.load(m.src, function( geometry ) {
+				var material = new THREE.MeshDepthMaterial();
+				
+				// mesh = new THREE.Mesh( geometry, material );
+				geometry.name = m.name;
+				geometry.partType = m.type;
+
+				console.log(geometry.material);
+				
+				geometry.scale.set( m.scale, m.scale, m.scale );
+				
+				geometry.position.set( m.posx, m.posy, m.posz);
+				
+				console.log(geometry);
+				scene.add( geometry );
+				renderer.render( scene , camera );
+				objects.push(geometry);
+			}.bind(this));
+			// } else {
+			// 	this.loader.load(m.src, function( geometry, materials ) {
+			// 		var blin = materials[0];
+			// 		var normalTexture = new THREE.MeshNormalMaterial();
 					
-					mesh = new THREE.Mesh( geometry, material );
-					mesh.name = m.name;
-					mesh.partType = m.type;
+			// 		var materialArray = [blin, normalTexture];
 					
-					mesh.scale.set( m.scale, m.scale, m.scale );
+			// 		mesh = new THREE.Mesh( geometry, materialArray[0] );
+			// 		mesh.name = m.name;
+			// 		mesh.partType = m.type;
 					
-					mesh.position.set( m.posx, m.posy, m.posz);
+			// 		mesh.scale.set( m.scale, m.scale, m.scale );
 					
-					console.log(geometry);
-					scene.add( geometry );
-					renderer.render( scene , camera );
-					objects.push(geometry);
-				}.bind(this));
-			} else {
-				this.loader.load(m.src, function( geometry, materials ) {
-					var blin = materials[0];
-					var normalTexture = new THREE.MeshNormalMaterial();
+			// 		mesh.position.set( m.posx, m.posy, m.posz);
 					
-					var materialArray = [blin, normalTexture];
-					
-					mesh = new THREE.Mesh( geometry, materialArray[0] );
-					mesh.name = m.name;
-					mesh.partType = m.type;
-					
-					mesh.scale.set( m.scale, m.scale, m.scale );
-					
-					mesh.position.set( m.posx, m.posy, m.posz);
-					
-					scene.add( mesh );
-					renderer.render( scene , camera );
-					objects.push(mesh);
-				}.bind(this));
-			}
+			// 		scene.add( mesh );
+			// 		renderer.render( scene , camera );
+			// 		objects.push(mesh);
+			// 	}.bind(this));
+			// }
 
 		},
 		
