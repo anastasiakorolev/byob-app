@@ -108,8 +108,13 @@
 			var objLoader = new THREE.ObjectLoader();
 			objLoader.load(m.src, function( geometry ) {
 				var material = new THREE.MeshDepthMaterial();
-				material.color.setHex( rand );
 				
+				var texture = new THREE.TextureLoader().load( "images/BatteredRobot.jpg" );
+				texture.wrapS = THREE.RepeatWrapping;
+				texture.wrapT = THREE.RepeatWrapping;
+				texture.repeat.set( 4, 4 );
+
+				material.map = texture;
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
