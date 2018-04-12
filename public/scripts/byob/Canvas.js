@@ -108,6 +108,7 @@
 			var objLoader = new THREE.ObjectLoader();
 			objLoader.load(m.src, function( geometry ) {
 				var material = new THREE.MeshDepthMaterial();
+				material.color.setHex( rand );
 				
 				
 				geometry.name = m.name;
@@ -116,7 +117,7 @@
 				console.log(geometry.children[0].material);
 				geometry.children[0].material = material;
 				console.log(geometry.children[0].material);
-				
+
 				geometry.scale.set( m.scale, m.scale, m.scale );
 				
 				geometry.position.set( m.posx, m.posy, m.posz);
