@@ -42,7 +42,7 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'head',
 			name: 'Iron Giant',
 			src: 'models/fuckthisshit.json',
-			scale: 1,
+			scale: 0.5,
 			posx: 0,
 			posy: 15,
 			posz: 0
@@ -51,7 +51,7 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'body',
 			name: 'Iron Giant',
 			src: 'models/IronGiantBody.json',
-			scale: 1,
+			scale: 0.5,
 			posx: 0,
 			posy: 0,
 			posz: 0
@@ -60,7 +60,7 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'lArm',
 			name: 'Iron Giant',
 			src: 'models/leftArmObj.json',
-			scale: 1,
+			scale: 0.5,
 			posx: 0,
 			posy: 0,
 			posz: 0
@@ -69,7 +69,7 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'rArm',
 			name: 'Iron Giant',
 			src: 'models/rightArmObj.json',
-			scale: 1,
+			scale: 0.5,
 			posx: 0,
 			posy: 0,
 			posz: 0
@@ -78,7 +78,7 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'lLeg',
 			name: 'Iron Giant',
 			src: 'models/leftLegObj.json',
-			scale: 1,
+			scale: 0.5,
 			posx: 0,
 			posy: 0,
 			posz: 0
@@ -87,7 +87,7 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'rLeg',
 			name: 'Iron Giant',
 			src: 'models/rightLegObj.json',
-			scale: 1,
+			scale: 0.5,
 			posx: 0,
 			posy: 0,
 			posz: 0

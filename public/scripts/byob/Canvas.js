@@ -120,7 +120,7 @@
 					
 					scene.add( geometry );
 					renderer.render( scene , camera );
-					objects.push(mesh);
+					objects.push(geometry);
 				}.bind(this));
 			} else {
 				this.loader.load(m.src, function( geometry, materials ) {
