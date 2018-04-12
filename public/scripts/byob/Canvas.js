@@ -118,7 +118,7 @@
 					
 					mesh.position.set( m.posx, m.posy, m.posz);
 					
-					scene.add( mesh );
+					scene.add( geometry );
 					renderer.render( scene , camera );
 					objects.push(mesh);
 				}.bind(this));
