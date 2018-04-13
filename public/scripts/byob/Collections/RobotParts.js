@@ -25,7 +25,7 @@
 			this.add(new Byob.Models.RobotPart({
 				type: 'lArm',
 				name: 'Iron Giant',
-				src: 'models/LeftArmObj.json',
+				src: 'models/leftArmObj.json',
 				scale: 1,
 				posx: 0,
 				posy: 0,
@@ -34,7 +34,7 @@
 			this.add(new Byob.Models.RobotPart({
 				type: 'rArm',
 				name: 'Iron Giant',
-				src: 'models/RightArmObj.json',
+				src: 'models/rightArmObj.json',
 				scale: 1,
 				posx: 0,
 				posy: 0,
@@ -43,7 +43,7 @@
 			this.add(new Byob.Models.RobotPart({
 				type: 'lLeg',
 				name: 'Iron Giant',
-				src: 'models/LeftLegObj.json',
+				src: 'models/leftLegObj.json',
 				scale: 1,
 				posx: 0,
 				posy: 0,
@@ -52,7 +52,7 @@
 			this.add(new Byob.Models.RobotPart({
 				type: 'rLeg',
 				name: 'Iron Giant',
-				src: 'models/RightLegObj.json',
+				src: 'models/rightLegObj.json',
 				scale: 1,
 				posx: 0,
 				posy: 0,
