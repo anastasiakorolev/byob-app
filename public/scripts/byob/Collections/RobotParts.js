@@ -10,7 +10,7 @@
 				src: 'models/IronGiantFullHead.json',
 				scale: 1,
 				posx: 0,
-				posy: 18,
+				posy: 15,
 				posz: 0,
 				downloadLink: ['obj/IronGiantHead.obj', 'obj/IronGiantJaw.obj']
 			}));
@@ -20,7 +20,7 @@
 				src: 'models/IronGiantBody.json',
 				scale: 0.75,
 				posx: 0,
-				posy: 3,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/IronGiantBody.obj'
 			}));
@@ -30,7 +30,7 @@
 				src: 'models/leftArmObj.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/LeftArmObj.obj'
 			}));
@@ -40,7 +40,7 @@
 				src: 'models/rightArmObj.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/RightArmObj.obj'
 			}));
@@ -50,7 +50,7 @@
 				src: 'models/leftLegObj.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/LeftLegObj.obj'
 			}));
@@ -60,7 +60,7 @@
 				src: 'models/rightLegObj.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/RightLegObj.obj'
 			}));
