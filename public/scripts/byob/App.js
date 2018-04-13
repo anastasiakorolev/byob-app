@@ -44,8 +44,9 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/IronGiantFullHead.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 15,
-			posz: 0
+			posy: 24,
+			posz: 0,
+			downloadLink: ['obj/IronGiantHead.obj', 'obj/IronGiantJaw.obj']
 		});
 		App.Robot.body = new Byob.Models.RobotPart({
 			type: 'body',
@@ -54,7 +55,8 @@ var Byob = (function (Backbone, Marionette) {
 			scale: 0.5,
 			posx: 0,
 			posy: 15,
-			posz: 0
+			posz: 0,
+			downloadLink: 'obj/IronGiantBody.obj'
 		});
 		App.Robot.lArm = new Byob.Models.RobotPart({
 			type: 'lArm',
@@ -63,7 +65,8 @@ var Byob = (function (Backbone, Marionette) {
 			scale: 0.5,
 			posx: 0,
 			posy: 15,
-			posz: 0
+			posz: 0,
+			downloadLink: 'obj/LeftArmObj.obj'
 		});
 		App.Robot.rArm = new Byob.Models.RobotPart({
 			type: 'rArm',
@@ -72,7 +75,8 @@ var Byob = (function (Backbone, Marionette) {
 			scale: 0.5,
 			posx: 0,
 			posy: 15,
-			posz: 0
+			posz: 0,
+			downloadLink: 'obj/RightArmObj.obj'
 		});
 		App.Robot.lLeg = new Byob.Models.RobotPart({
 			type: 'lLeg',
@@ -81,7 +85,8 @@ var Byob = (function (Backbone, Marionette) {
 			scale: 0.5,
 			posx: 0,
 			posy: 15,
-			posz: 0
+			posz: 0,
+			downloadLink: 'obj/LeftLegObj.obj'
 		});
 		App.Robot.rLeg = new Byob.Models.RobotPart({
 			type: 'rLeg',
@@ -90,7 +95,8 @@ var Byob = (function (Backbone, Marionette) {
 			scale: 0.5,
 			posx: 0,
 			posy: 15,
-			posz: 0
+			posz: 0,
+			downloadLink: 'obj/RightLegObj.obj'
 		});
 		console.log(App.Robot);
 		var controller = new Byob.ByobController();

@@ -17,6 +17,9 @@
 		events: {
 			'click #canvas': function (e) {
 				this.canvas.onCanvasMouseDown(e);
+			},
+			'click .downloadFiles': function (e) {
+				this.canvas.onDownload(e);
 			}
 		},
 
@@ -35,6 +38,7 @@
 			this.ui.canvas.show(this.canvas);
 			var selection = new Byob.SelectionView();
 			this.ui.selector.show(selection);
+			Byob.root.selector.show(new Byob.PartViewerView());
 		}
 	});
 })();

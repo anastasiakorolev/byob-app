@@ -10,17 +10,19 @@
 				src: 'models/IronGiantFullHead.json',
 				scale: 1,
 				posx: 0,
-				posy: 15,
-				posz: 0
+				posy: 18,
+				posz: 0,
+				downloadLink: ['obj/IronGiantHead.obj', 'obj/IronGiantJaw.obj']
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'body',
 				name: 'Iron Giant',
 				src: 'models/IronGiantBody.json',
-				scale: 1,
+				scale: 0.75,
 				posx: 0,
-				posy: 0,
-				posz: 0
+				posy: 3,
+				posz: 0,
+				downloadLink: 'obj/IronGiantBody.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'lArm',
@@ -29,7 +31,8 @@
 				scale: 1,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/LeftArmObj.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'rArm',
@@ -38,7 +41,8 @@
 				scale: 1,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/RightArmObj.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'lLeg',
@@ -47,7 +51,8 @@
 				scale: 1,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/LeftLegObj.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'rLeg',
@@ -56,7 +61,8 @@
 				scale: 1,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/RightLegObj.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'head',
@@ -65,7 +71,8 @@
 				scale: 6,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/BeautyBotHead.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'body',
@@ -74,7 +81,8 @@
 				scale: 6,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/BeautyBotBody.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'rArm',
@@ -83,7 +91,8 @@
 				scale: 6,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/BeautyBotRightArm.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'lArm',
@@ -92,7 +101,8 @@
 				scale: 6,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/BeautyBotLeftArm.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'lLeg',
@@ -101,7 +111,8 @@
 				scale: 6,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/BeautyBotLeftLeg.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'rLeg',
@@ -110,7 +121,8 @@
 				scale: 6,
 				posx: 0,
 				posy: 0,
-				posz: 0
+				posz: 0,
+				downloadLink: 'obj/BeautyBotRightLeg.obj'
 			}));
 		},
 

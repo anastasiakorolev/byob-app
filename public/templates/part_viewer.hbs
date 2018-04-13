@@ -1,7 +1,13 @@
-<div class="selection-title">
-	<div class="choose">Choose your <p class="part">{{title}}</p>:</div>
-</div>
-<img class="arrow left" src="images/leftArrow.png" style="width: 60px;" value="previous"/>
-<img class="arrow right" src="images/rightArrow.png" style="width: 60px;" value="next"/>
-<button class="button part-selection-button">Select</button>
-<div id="mini-canvas-container"></div>
+{{#if hasParams}}
+	<div class="selection-title">
+		<div class="choose">Choose your <p class="part">{{title}}</p>:</div>
+	</div>
+	<img class="arrow left" src="images/leftArrow.png" style="width: 60px;" value="previous"/>
+	<img class="arrow right" src="images/rightArrow.png" style="width: 60px;" value="next"/>
+	<button class="button part-selection-button">Update Robot</button>
+	<div id="mini-canvas-container"></div>
+{{else}}
+	<div class="selection-title">
+		<div class="choose default">{{defaultState}}</div>
+	</div>
+{{/if}}

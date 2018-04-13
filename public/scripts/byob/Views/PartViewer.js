@@ -15,28 +15,34 @@
 		},
 
 		initialize: function (params) {
-			this.partType = params.partType;
-			this.color = params.color;
-			console.log(this.partType);
-
-			
+			this.hasParams = false;
+			console.log(params);
+			if (params && params.partType) {
+				this.hasParams = true;
+				this.partType = params.partType;
+				this.color = params.color;
+				console.log(this.partType);
+			}
 		},
 
 		templateHelpers: function () {
 			return {
 				title: this.partType,
-				defaultState: 'Select a part on the bot to the left to start editing!'
+				hasParams: this.hasParams,
+				defaultState: 'Click a part on the robot to customize it.'
 			};
 		},
 
 		onShow: function () {
-			this.params = {
-				partType: this.partType,
-				color: this.color
-			};
+			if (this.hasParams) {
+				this.params = {
+					partType: this.partType,
+					color: this.color
+				};
 
-			this.miniCanvas = new Byob.PartMiniCanvasView(this.params);
-			this.miniCanvas.initialize(this.params);
+				this.miniCanvas = new Byob.PartMiniCanvasView(this.params);
+				this.miniCanvas.initialize(this.params);
+			}
 		}
 		
 	});

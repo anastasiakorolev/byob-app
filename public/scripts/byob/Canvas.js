@@ -1,28 +1,18 @@
 (function () {
 	'use strict';
 
-	var camera, container, controls, scene, projector, renderer;
-	var mesh, mixer;
-	var mouse, raycaster;
+	var camera, container, scene, renderer, mesh, mouse, raycaster;
 	var objects = [];
-	
+
 	// Robot View
 	// -------------------
 	//
-	// Display an individual todo item, and respond to changes
-	// that are made to the item, including marking completed.
 	Byob.CanvasView = Marionette.LayoutView.extend({
 
 		template: JST.main_canvas,
 
 		ui: {
 			partViewer: '.selection-container'
-		},
-
-		events: {
-			'click .arrowBody': 'onBodyUpdate',
-			'click .arrowHead': 'onHeadUpdate',
-			'click .downloadFiles': 'onDownload'
 		},
 
 		initialize: function initialize () {
@@ -36,16 +26,6 @@
 			camera.position.z = 60;
 			camera.position.y = 2;
 			camera.target = new THREE.Vector3( 0, -1, -1 );
-			
-			controls = new THREE.TrackballControls( camera, renderer.domElement );
-			controls.rotateSpeed = 1.0;
-			controls.zoomSpeed = 1.2;
-			controls.panSpeed = 0.8;
-			controls.noZoom = false;
-			controls.noPan = false;
-			controls.staticMoving = true;
-			controls.dynamicDampingFactor = 0.3;
-			controls.update();
 			
 			scene = new THREE.Scene();
 			scene.background = new THREE.Color( 0xf5f5f5 );
@@ -61,14 +41,12 @@
 			this.loadRobot();
 			
 			var c = renderer.domElement;
-
 			raycaster = new THREE.Raycaster();
 			mouse = new THREE.Vector2();
 
 			this.onRender();
 
-			document.getElementById("canvas").appendChild(c);	
-			// window.addEventListener( 'resize', this.onWindowResize(), false );
+			document.getElementById("canvas").appendChild(c);
 		},
 
 		onCanvasMouseDown: function onCanvasMouseDown(e){
@@ -84,6 +62,7 @@
 				scene.partType = intersects[ 0 ].object.partType;
 				renderer.render( scene , camera );
 				console.log(scene.partType);
+
 				Byob.root.selector.show(new Byob.PartViewerView({
 					partType: scene.partType,
 					color: rand
@@ -130,56 +109,48 @@
 				renderer.render( scene , camera );
 				objects.push(geometry.children[0]);
 			}.bind(this));
-			// } else {
-			// 	this.loader.load(m.src, function( geometry, materials ) {
-			// 		var blin = materials[0];
-			// 		var normalTexture = new THREE.MeshNormalMaterial();
-					
-			// 		var materialArray = [blin, normalTexture];
-					
-			// 		mesh = new THREE.Mesh( geometry, materialArray[0] );
-			// 		mesh.name = m.name;
-			// 		mesh.partType = m.type;
-					
-			// 		mesh.scale.set( m.scale, m.scale, m.scale );
-					
-			// 		mesh.position.set( m.posx, m.posy, m.posz);
-					
-			// 		scene.add( mesh );
-			// 		renderer.render( scene , camera );
-			// 		objects.push(mesh);
-			// 	}.bind(this));
-			// }
-
 		},
 		
-		// onDownload: function onDownload() {
-		// 	var downloadLinks = [];
-		// 	if(selectedHeadModel === 6 || selectedHeadModel === 8) {
-		// 		downloadLinks.push('obj/IronGiantJaw.obj');
-		// 		downloadLinks.push('obj/IronGiantHead.obj');
-		// 	} else {
-		// 		downloadLinks.push(modelArray[selectedHeadModel]);
-		// 	}
-		// 	downloadLinks.push(modelArray[selectedModel]);
+		onDownload: function onDownload(e) {
+			var downloadLinks = [];
+			console.log(Byob.Robot);
+			_.each(Byob.Robot, function(m) {
+				console.log(m);
+				if (m) {
+					console.log('model exists');
+					console.log(m.name);
+					console.log(m.type);
+					if (m.attributes.name === 'Iron Giant' && m.attributes.type === 'head') {
+						console.log(m.attributes);
+						console.log(m.attributes.downloadLink);
+						downloadLinks.push(m.attributes.downloadLink[0]);
+						downloadLinks.push(m.attributes.downloadLink[1]);
+					} else {
+						console.log('add link');
+						console.log(m.attributes);
+						console.log(m.attributes.downloadLink);
+						downloadLinks.push(m.attributes.downloadLink);
+					}
+				}
+			});
 			
-		// 	console.log(downloadLinks);
-			
-		// 	var tempDownloadLink = document.createElement("a");
-		// 	tempDownloadLink.style.display = 'none';
-		// 	document.body.appendChild(tempDownloadLink);
-			
-		// 	for(var n = 0; n < downloadLinks.length; n++) {
-		// 		var d = downloadLinks[n];
-		// 		tempDownloadLink.setAttribute('href', d);
-		// 		tempDownloadLink.setAttribute('download', d);
-		// 		tempDownloadLink.click();
-		// 	}
-			
-		// },
+			console.log(downloadLinks);
+
+			_.each(downloadLinks, function(link) {
+				this.createIframeForDownloadHandler(link);
+			}.bind(this));
+
+		},
+
+		createIframeForDownloadHandler: function createIframeForDownloadHandler(fileId) {
+		    var element = document.createElement("iframe");
+		    element.setAttribute('id', 'myframe' + fileId);
+		    element.setAttribute('style', 'display:none;');
+		    element.setAttribute('src', fileId);
+		    document.body.appendChild(element);
+		},
 
 		onRender: function onRender() {
-			controls.update();
 			renderer.render( scene, camera );
 		}
 	});
