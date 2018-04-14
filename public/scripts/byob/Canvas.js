@@ -88,7 +88,7 @@
 			objLoader.load(m.src, function( geometry ) {
 				var loader = new THREE.TextureLoader();
 				var texture1 = loader.load( "images/BatteredRobot.jpg" );
-				cubeTexture = loader.load
+				// cubeTexture = loader.load
 
 				// cube = new THREE.Mesh(new THREE.BoxGeometry(3,3,3), new 
 				// THREE.MeshPhongMaterial({color:0xffffff, map:texture1}));
