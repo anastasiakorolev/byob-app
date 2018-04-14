@@ -44,7 +44,7 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/IronGiantFullHead.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 24,
+			posy: 15,
 			posz: 0,
 			downloadLink: ['obj/IronGiantHead.obj', 'obj/IronGiantJaw.obj']
 		});
