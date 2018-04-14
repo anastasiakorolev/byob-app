@@ -86,11 +86,17 @@
 			console.log('loading part');
 			var objLoader = new THREE.ObjectLoader();
 			objLoader.load(m.src, function( geometry ) {
-				var texture = new THREE.TextureLoader().load( "images/BatteredRobot.jpg" );
-				texture.wrapS = THREE.RepeatWrapping;
-				texture.wrapT = THREE.RepeatWrapping;
-				texture.repeat.set( 100, 100 );
-				var material = new THREE.MeshPhongMaterial({shininess: 1, color: Math.random() * 0xffffff});
+				var loader = new THREE.TextureLoader();
+				var texture1 = loader.load( "images/BatteredRobot.jpg" );
+				cubeTexture = loader.load
+
+				// cube = new THREE.Mesh(new THREE.BoxGeometry(3,3,3), new 
+				// THREE.MeshPhongMaterial({color:0xffffff, map:texture1}));
+				// var texture = new THREE.TextureLoader().load( "images/BatteredRobot.jpg" );
+				// texture.wrapS = THREE.RepeatWrapping;
+				// texture.wrapT = THREE.RepeatWrapping;
+				// texture.repeat.set( 100, 100 );
+				var material = new THREE.MeshPhongMaterial({shininess: 1, color:0xffffff, map:texture1});
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
