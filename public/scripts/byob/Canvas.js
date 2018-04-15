@@ -58,7 +58,7 @@
 
 			if ( intersects.length > 0 ) {
 				var rand = Math.random() * 0xffffff;
-				//intersects[ 0 ].object.material.color.setHex( rand );
+				intersects[ 0 ].object.material.color.setHex( rand );
 				scene.partType = intersects[ 0 ].object.partType;
 				renderer.render( scene , camera );
 				console.log(scene.partType);
@@ -96,7 +96,7 @@
 				// texture.wrapS = THREE.RepeatWrapping;
 				// texture.wrapT = THREE.RepeatWrapping;
 				// texture.repeat.set( 100, 100 );
-				var material = new THREE.MeshPhongMaterial({shininess: 1, color:0xffffff, map:texture1});
+				var material = new THREE.MeshPhongMaterial({shininess: 1, color:Math.random() * 0xffffff});
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
