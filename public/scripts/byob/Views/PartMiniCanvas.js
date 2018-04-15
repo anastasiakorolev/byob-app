@@ -129,7 +129,7 @@
 			console.log(parts[selectedModel]);
 			console.log(this.part);
 
-			this.loader.load(this.part.srcCentered, function( geometry ) {
+			this.loader.load(this.part.attributes.srcCentered, function( geometry ) {
 				
 				geometry.name = this.part.name;
 				geometry.partType = this.part.type;
