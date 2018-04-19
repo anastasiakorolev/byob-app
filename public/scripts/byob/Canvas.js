@@ -110,7 +110,7 @@
 				geometry.children[0].material = material;
 				console.log(geometry.children[0].material);
 
-				geometry.scale.set( m.scale, m.scale, m.scale );
+				geometry.scale.set( 0.5, 0.5, 0.5 );
 				
 				geometry.position.set( m.posx, m.posy, m.posz);
 				
