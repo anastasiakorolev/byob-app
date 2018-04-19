@@ -142,7 +142,7 @@
 				geometry.position.set( 0, 0, 0 );
 
 				if (this.color) {
-					geometry.children[0].material.color.setHex( this.color );
+					geometry.children[0].material = new THREE.MeshPhongMaterial({color: this.color, wireframe:true, shininess: 1})
 				}
 				
 				console.log(scene);
