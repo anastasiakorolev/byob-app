@@ -24,7 +24,11 @@
 				posx: 0,
 				posy: 15,
 				posz: 0,
-				downloadLink: 'obj/IronGiantBody.obj'
+				downloadLink: 'obj/IronGiantBody.obj',
+				rArm: [],
+				rLeg: [],
+				lArm: [],
+				lLeg: []
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'Left Arm',
@@ -90,7 +94,11 @@
 				posx: 0,
 				posy: 0,
 				posz: 0,
-				downloadLink: 'obj/WALLE_E_BODY_HOLLOW_1MM.obj'
+				downloadLink: 'obj/WALLE_E_BODY_HOLLOW_1MM.obj',
+				rArm: [],
+				rLeg: [],
+				lArm: [],
+				lLeg: []
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'Right Arm',
@@ -156,7 +164,11 @@
 				posx: 0,
 				posy: 0,
 				posz: 0,
-				downloadLink: 'obj/CylinderBotBodyHead.obj'
+				downloadLink: 'obj/CylinderBotBodyHead.obj',
+				rArm: [],
+				rLeg: [],
+				lArm: [],
+				lLeg: []
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'Left Arm',
