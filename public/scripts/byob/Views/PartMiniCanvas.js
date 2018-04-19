@@ -57,10 +57,12 @@
 			this.loader = new THREE.ObjectLoader();
 
 			this.partType = scene.partType;
+			this.partName = scene.partName;
 			console.log(params);
 			if (params) {
 				this.partType = params.partType;
 				this.color = params.color;
+				this.partName = params.partName;
 			}
 			console.log(this.partType);
 
@@ -133,6 +135,7 @@
 				
 				geometry.name = this.part.name;
 				geometry.partType = this.part.type;
+				geometry.partName = this.part.typeName;
 				
 				geometry.scale.set( this.part.scale*1.5, this.part.scale*1.5, this.part.scale*1.5 );
 				
@@ -147,6 +150,7 @@
 				if (scene.children.length === 3) {
 					scene.children[2] = geometry;
 					scene.partType = geometry.partType;
+					scene.partName = geometry.partName;
 				} else {
 					scene.add( geometry );
 				}

@@ -39,7 +39,8 @@ var Byob = (function (Backbone, Marionette) {
 		console.log('start');
 
 		App.Robot.head = new Byob.Models.RobotPart({
-			type: 'Head',
+			type: 'head',
+			typeName: 'Head',
 			name: 'Iron Giant',
 			src: 'models/IronGiantFullHead.json',
 			srcCentered: 'models/IronGiantFullHeadCentered.json',
@@ -50,7 +51,8 @@ var Byob = (function (Backbone, Marionette) {
 			downloadLink: ['obj/IronGiantHead.obj', 'obj/IronGiantJaw.obj']
 		});
 		App.Robot.body = new Byob.Models.RobotPart({
-			type: 'Body',
+			type: 'body',
+			typeName: 'Body',
 			name: 'Iron Giant',
 			src: 'models/IronGiantBody.json',
 			srcCentered: 'models/IronGiantBodyCentered.json',
@@ -65,7 +67,8 @@ var Byob = (function (Backbone, Marionette) {
 			lLeg: []
 		});
 		App.Robot.lArm = new Byob.Models.RobotPart({
-			type: 'Left Arm',
+			type: 'lArm',
+			typeName: 'Left Arm',
 			name: 'Iron Giant',
 			src: 'models/leftArmObj.json',
 			srcCentered: 'models/LeftArmObjCentered.json',
@@ -76,7 +79,8 @@ var Byob = (function (Backbone, Marionette) {
 			downloadLink: 'obj/LeftArmObj.obj'
 		});
 		App.Robot.rArm = new Byob.Models.RobotPart({
-			type: 'Right Arm',
+			type: 'rArm',
+			typeName: 'Right Arm',
 			name: 'Iron Giant',
 			src: 'models/rightArmObj.json',
 			srcCentered: 'models/RightArmObjCentered.json',
@@ -87,7 +91,8 @@ var Byob = (function (Backbone, Marionette) {
 			downloadLink: 'obj/RightArmObj.obj'
 		});
 		App.Robot.lLeg = new Byob.Models.RobotPart({
-			type: 'Left Leg',
+			type: 'lLeg',
+			typeName: 'Left Leg',
 			name: 'Iron Giant',
 			src: 'models/leftLegObj.json',
 			srcCentered: 'models/LeftLegObjCentered.json',
@@ -98,7 +103,8 @@ var Byob = (function (Backbone, Marionette) {
 			downloadLink: 'obj/LeftLegObj.obj'
 		});
 		App.Robot.rLeg = new Byob.Models.RobotPart({
-			type: 'Right Leg',
+			type: 'rLeg',
+			typeName: 'Right Leg',
 			name: 'Iron Giant',
 			src: 'models/rightLegObj.json',
 			srcCentered: 'models/RightLegObjCentered.json',

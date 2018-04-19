@@ -21,13 +21,14 @@
 				this.hasParams = true;
 				this.partType = params.partType;
 				this.color = params.color;
+				this.partName = params.partName;
 				console.log(this.partType);
 			}
 		},
 
 		templateHelpers: function () {
 			return {
-				title: this.partType,
+				title: this.partName,
 				hasParams: this.hasParams,
 				defaultState: 'Click a part on the robot to customize it.'
 			};

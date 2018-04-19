@@ -60,12 +60,14 @@
 				var rand = Math.random() * 0xffffff;
 				intersects[ 0 ].object.material.color.setHex( rand );
 				scene.partType = intersects[ 0 ].object.partType;
+				scene.partName = intersects[ 0 ].object.partName;
 				renderer.render( scene , camera );
 				console.log(scene.partType);
 
 				Byob.root.selector.show(new Byob.PartViewerView({
 					partType: scene.partType,
-					color: rand
+					color: rand,
+					partName: scene.partName
 				}));
 			}
 		},
@@ -100,7 +102,9 @@
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
+				geometry.partName = m.typeName;
 				geometry.children[0].partType = m.type;
+				geometry.children[0].partName = m.typeName;
 
 				console.log(geometry.children[0].material);
 				geometry.children[0].material = material;
