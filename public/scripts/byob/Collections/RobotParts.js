@@ -86,11 +86,12 @@
 				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_BODY_HOLLOW_1MM.obj',
-				rArm: [-5,19,0],
-				rLeg: [-2.5,10,0],
-				lArm: [5,19,0],
-				lLeg: [2.5,10,0],
-				head: [0,20,1]
+				rArm: [-3,18,-0.5, new THREE.Euler( 0, 0, -1, 'XYZ' )],
+				rArmRot: new THREE.Euler( 0, 0, -0.4, 'XYZ' ),
+				rLeg: [-3.5,10,-0.5],
+				lArm: [3,18,-0.5, new THREE.Euler( 0, 0, 1, 'XYZ' )],
+				lLeg: [3.5,10,-0.5],
+				head: [0,21.5,-0.5]
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'rArm',
@@ -148,10 +149,10 @@
 				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotBodyHead.obj',
-				rArm: [-3,17,0],
-				rLeg: [-3.5,12,0],
-				lArm: [3,17,0],
-				lLeg: [3.5,12,0],
+				rArm: [-2.75,17.2,0, new THREE.Euler( 0, 0, -0.4, 'XYZ' )],
+				rLeg: [-2.75,12.5,0],
+				lArm: [2.75,17.2,0, new THREE.Euler( 0, 0, 0.4, 'XYZ' )],
+				lLeg: [2.75,12.5,0],
 				head: [0,0,0]
 			}));
 			this.add(new Byob.Models.RobotPart({

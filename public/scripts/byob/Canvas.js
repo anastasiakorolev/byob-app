@@ -130,7 +130,14 @@
 				} else {
 					geometry.position.set( m.posx, m.posy, m.posz );
 				}
-				
+
+				if (Byob.Robot.body.attributes.name !== 'Iron Giant') {
+					if ((m.partType === 'lArm' || m.partType === 'rArm') && m.name === 'Iron Giant') {
+						geometry.rotation.set( Byob.Robot.body.attributes[m.type][3] );
+					}
+				}
+
+			
 				console.log(geometry);
 				scene.add( geometry );
 				renderer.render( scene , camera );
