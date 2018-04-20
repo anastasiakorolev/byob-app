@@ -142,7 +142,7 @@
 				geometry.position.set( 0, 0, 0 );
 
 				if (this.color) {
-					geometry.children[0].material = new THREE.MeshPhongMaterial({color: this.color, wireframe:true, shininess: 1});
+					geometry.children[0].material = new THREE.MeshPhongMaterial({color: this.color, wireframe:false, shininess: 1});
 				}
 				
 				console.log(scene);
@@ -165,6 +165,11 @@
 			console.log(Byob.Robot[this.partType]);
 			var controller = new Byob.ByobController();
 			controller.showSelector();
+		},
+
+		switchToWireframe: function switchToWireframe() {
+			scene.children[2].material.wireframe = !scene.children[2].material.wireframe;
+			renderer.render( scene, camera );
 		},
 
 		animate: function animate() {

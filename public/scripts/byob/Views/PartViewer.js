@@ -11,7 +11,8 @@
 
 		events: {
 			'click .arrow': function(e) { this.miniCanvas.onPartUpdate(e, this.partType); },
-			'click .part-selection-button': function(e) { this.miniCanvas.updateDefaultRobot(); }
+			'click .part-selection-button': function(e) { this.miniCanvas.updateDefaultRobot(); },
+			'click .wireframe': function (e) { this.miniCanvas.switchToWireframe(e); }
 		},
 
 		initialize: function (params) {
