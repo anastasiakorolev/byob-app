@@ -119,7 +119,7 @@
 
 				geometry.scale.set( 0.5, 0.5, 0.5 );
 				
-				geometry.position.set( Byob.Robot.body[m.type][0], Byob.Robot.body[m.type][1], Byob.Robot.body[m.type][2]);
+				geometry.position.set( Byob.Robot.body.attributes[m.type][0], Byob.Robot.body.attributes[m.type][1], Byob.Robot.body.attributes[m.type][2]);
 				
 				console.log(geometry);
 				scene.add( geometry );
