@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var camera, container, scene, renderer, mesh, mouse, raycaster;
+	var camera, controls, container, scene, renderer, mesh, mouse, raycaster;
 	var objects = [];
 
 	// Robot View
