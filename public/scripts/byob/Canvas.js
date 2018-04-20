@@ -108,7 +108,7 @@
 				if ((m.type === 'lArm' || m.type === 'rArm') && m.name === 'Iron Giant') {
 					console.log(src);
 					src = m.srcRot;
-					console.log(m.srcRot)
+					console.log(m.srcRot);
 					console.log(src);
 				}
 			}
