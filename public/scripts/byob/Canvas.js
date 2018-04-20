@@ -101,14 +101,14 @@
 			console.log('loading part');
 			var objLoader = new THREE.ObjectLoader();
 			var src = m.src;
-			
+
 			if (Byob.Robot.body.attributes.name !== 'Iron Giant') {
 				if ((m.partType === 'lArm' || m.partType === 'rArm') && m.name === 'Iron Giant') {
 					src = m.srcRot;
 				}
 			}
 
-			objLoader.load(m.src, function( geometry ) {
+			objLoader.load(src, function( geometry ) {
 				var loader = new THREE.TextureLoader();
 				var texture1 = loader.load( "images/BatteredRobot.jpg" );
 				// cubeTexture = loader.load
