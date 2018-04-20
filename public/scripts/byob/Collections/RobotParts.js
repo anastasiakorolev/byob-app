@@ -88,7 +88,7 @@
 				srcCentered: 'models/WALLE_E_HEAD_HOLLOW_1MM.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_HEAD_HOLLOW_1MM.obj'
 			}));
@@ -100,7 +100,7 @@
 				srcCentered: 'models/WALLE_E_BODY_HOLLOW_1MM.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_BODY_HOLLOW_1MM.obj',
 				rArm: [],
@@ -116,7 +116,7 @@
 				srcCentered: 'models/WALLE_E_RIGHT_ARM_HOLLOW_1MM.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_RIGHT_ARM_HOLLOW_1MM.obj'
 			}));
@@ -128,7 +128,7 @@
 				srcCentered: 'models/WALLE_E_LEFT_ARM_HOLLOW_1MM.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_LEFT_ARM_HOLLOW_1MM.obj'
 			}));
@@ -140,7 +140,7 @@
 				srcCentered: 'models/WALLE_E_LEFT_LEG_HOLLOW_1MM.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_LEFT_LEG_HOLLOW_1MM.obj'
 			}));
@@ -152,7 +152,7 @@
 				srcCentered: 'models/WALLE_E_RIGHT_LEG_HOLLOW_1MM.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_RIGHT_LEG_HOLLOW_1MM.obj'
 			}));
@@ -164,7 +164,7 @@
 				srcCentered: 'models/CylinderBotBodyHead.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotBodyHead.obj'
 			}));
@@ -176,7 +176,7 @@
 				srcCentered: 'models/CylinderBotBodyHead.json',
 				scale: 1,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotBodyHead.obj',
 				rArm: [],
@@ -192,7 +192,7 @@
 				srcCentered: 'models/CylinderBotLeftArm.json',
 				scale: 1.2,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotLeftArm.obj'
 			}));
@@ -204,7 +204,7 @@
 				srcCentered: 'models/CylinderBotLeftLeg.json',
 				scale: 1.2,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotLeftLeg.obj'
 			}));
@@ -216,7 +216,7 @@
 				srcCentered: 'models/CylinderBotRightArm.json',
 				scale: 1.2,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotRightArm.obj'
 			}));
@@ -228,7 +228,7 @@
 				srcCentered: 'models/CylinderBotRightLeg.json',
 				scale: 1.2,
 				posx: 0,
-				posy: 0,
+				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotRightLeg.obj'
 			}));
