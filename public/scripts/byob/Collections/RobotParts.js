@@ -87,7 +87,7 @@
 				rLeg: [-2.5,10,0],
 				lArm: [5,19,0],
 				lLeg: [2.5,10,0],
-				head: [0,20,0]
+				head: [0,20,1]
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'rArm',
@@ -145,11 +145,11 @@
 				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotBodyHead.obj',
-				rArm: [-5,19,0],
-				rLeg: [-2.5,10,0],
-				lArm: [5,19,0],
-				lLeg: [2.5,10,0],
-				head: [0,20,0]
+				rArm: [-3,17,0],
+				rLeg: [-3.5,12,0],
+				lArm: [3,17,0],
+				lLeg: [3.5,12,0],
+				head: [0,0,0]
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'lArm',
