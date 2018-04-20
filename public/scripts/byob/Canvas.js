@@ -81,8 +81,14 @@
 		
 		loadRobot: function loadRobot() {
 			console.log(Byob.Robot);
-			this.loadPart(Byob.Robot.head);
-			this.loadPart(Byob.Robot.body);
+
+			if (Byob.Robot.body.attributes.name === 'Plankton Bot') {
+				this.loadPart(Byob.Robot.body);
+			} else { 
+				this.loadPart(Byob.Robot.head);
+				this.loadPart(Byob.Robot.body);
+			}
+
 			this.loadPart(Byob.Robot.lArm);
 			this.loadPart(Byob.Robot.rArm);
 			this.loadPart(Byob.Robot.lLeg);

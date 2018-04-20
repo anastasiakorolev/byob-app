@@ -161,7 +161,11 @@
 
 		updateDefaultRobot: function updateDefaultRobot() {
 			console.log(Byob.Robot[this.partType]);
-			Byob.Robot[this.partType] = this.part;
+			if (this.partType === 'head' && this.part.name === 'Plankton Bot'){
+				Byob.Robot.body = this.part;
+			} else {
+				Byob.Robot[this.partType] = this.part;
+			}
 			console.log(Byob.Robot[this.partType]);
 			var controller = new Byob.ByobController();
 			controller.showSelector();
