@@ -100,6 +100,14 @@
 			var m = part;
 			console.log('loading part');
 			var objLoader = new THREE.ObjectLoader();
+			var src = m.src;
+			
+			if (Byob.Robot.body.attributes.name !== 'Iron Giant') {
+				if ((m.partType === 'lArm' || m.partType === 'rArm') && m.name === 'Iron Giant') {
+					src = m.srcRot;
+				}
+			}
+
 			objLoader.load(m.src, function( geometry ) {
 				var loader = new THREE.TextureLoader();
 				var texture1 = loader.load( "images/BatteredRobot.jpg" );
@@ -130,13 +138,6 @@
 				} else {
 					geometry.position.set( m.posx, m.posy, m.posz );
 				}
-
-				if (Byob.Robot.body.attributes.name !== 'Iron Giant') {
-					if ((m.partType === 'lArm' || m.partType === 'rArm') && m.name === 'Iron Giant') {
-						geometry.rotation.set( Byob.Robot.body.attributes[m.type][3] );
-					}
-				}
-
 			
 				console.log(geometry);
 				scene.add( geometry );

@@ -36,6 +36,7 @@
 				name: 'Iron Giant',
 				src: 'models/LeftArmObj_Positioned.json',
 				srcCentered: 'models/LeftArmObjCentered.json',
+				srcRot: 'models/LeftArmObj_Positioned_Rot.json',
 				scale: 1,
 				downloadLink: 'obj/LeftArmObj.obj'
 			}));
@@ -45,6 +46,7 @@
 				name: 'Iron Giant',
 				src: 'models/RightArmObj_Positioned.json',
 				srcCentered: 'models/RightArmObjCentered.json',
+				srcRot: 'models/RightArmObj_Positioned_Rot.json',
 				scale: 1,
 				downloadLink: 'obj/RightArmObj.obj'
 			}));
@@ -86,10 +88,9 @@
 				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_BODY_HOLLOW_1MM.obj',
-				rArm: [-3,18,-0.5, new THREE.Euler( 0, 0, -1, 'XYZ' )],
-				rArmRot: new THREE.Euler( 0, 0, -0.4, 'XYZ' ),
+				rArm: [-3,18,-0.5],
 				rLeg: [-3.5,10,-0.5],
-				lArm: [3,18,-0.5, new THREE.Euler( 0, 0, 1, 'XYZ' )],
+				lArm: [3,18,-0.5],
 				lLeg: [3.5,10,-0.5],
 				head: [0,21.5,-0.5]
 			}));
@@ -149,9 +150,9 @@
 				posy: 15,
 				posz: 0,
 				downloadLink: 'obj/CylinderBotBodyHead.obj',
-				rArm: [-2.75,17.2,0, new THREE.Euler( 0, 0, -0.4, 'XYZ' )],
+				rArm: [-2.75,17.2,0],
 				rLeg: [-2.75,12.5,0],
-				lArm: [2.75,17.2,0, new THREE.Euler( 0, 0, 0.4, 'XYZ' )],
+				lArm: [2.75,17.2,0],
 				lLeg: [2.75,12.5,0],
 				head: [0,0,0]
 			}));
