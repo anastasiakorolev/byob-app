@@ -61,9 +61,9 @@ var Byob = (function (Backbone, Marionette) {
 			posy: 15,
 			posz: 0,
 			downloadLink: 'obj/IronGiantBody.obj',
-			rArm: [-5,18,0],
+			rArm: [-5,19,0],
 			rLeg: [-2.5,10,0],
-			lArm: [5,18,0],
+			lArm: [5,19,0],
 			lLeg: [2.5,10,0],
 			head: [0,20,0]
 		});
