@@ -108,7 +108,7 @@
 				if ((m.type === 'lArm' || m.type === 'rArm') && m.name === 'Iron Giant') {
 					console.log(src);
 					console.log(m);
-					src = m.attributes.srcRot;
+					src = m.attributes.fsrcRot;
 					console.log(m.srcRot);
 					console.log(src);
 				}
@@ -129,9 +129,9 @@
 				
 				geometry.name = m.name;
 				geometry.partType = m.type;
-				geometry.partName = m.typeName;
+				geometry.partName = m.attributes.typeName;
 				geometry.children[0].partType = m.type;
-				geometry.children[0].partName = m.typeName;
+				geometry.children[0].partName = m.attributes.typeName;
 
 				console.log(geometry.children[0].material);
 				geometry.children[0].material = material;

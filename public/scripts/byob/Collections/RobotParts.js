@@ -89,9 +89,9 @@
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_BODY_HOLLOW_1MM.obj',
 				rArm: [-3,18,-0.25],
-				rLeg: [-3.5,10,-0.25],
+				rLeg: [-3,10,-0.25],
 				lArm: [3,18,-0.25],
-				lLeg: [3.5,10,-0.25],
+				lLeg: [3,10,-0.25],
 				head: [0,20.5,-0.25]
 			}));
 			this.add(new Byob.Models.RobotPart({

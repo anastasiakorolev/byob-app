@@ -135,7 +135,7 @@
 				
 				geometry.name = this.part.name;
 				geometry.partType = this.part.type;
-				geometry.partName = this.part.typeName;
+				geometry.partName = this.part.attributes.typeName;
 				
 				geometry.scale.set( this.part.scale*1.5, this.part.scale*1.5, this.part.scale*1.5 );
 				
