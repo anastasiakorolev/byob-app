@@ -21,11 +21,24 @@
 			renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth/2, window.innerHeight );
+
+			var c = renderer.domElement;
+			raycaster = new THREE.Raycaster();
+			mouse = new THREE.Vector2();
+
+			document.getElementById("canvas").appendChild(c);
 			
 			camera = new THREE.PerspectiveCamera( 50, (window.innerWidth/2) / (window.innerHeight), 0.1, 10000 );
 			camera.position.z = 60;
 			camera.position.y = 2;
 			camera.target = new THREE.Vector3( 0, -1, -1 );
+
+			controls = new THREE.TrackballControls( camera, renderer.domElement );
+			controls.noPan = true;
+			controls.minDistance = 50;
+			controls.maxDistance = 140;
+
+			controls.update();
 			
 			scene = new THREE.Scene();
 			scene.background = new THREE.Color( 0xf5f5f5 );
@@ -40,13 +53,7 @@
 			
 			this.loadRobot();
 			
-			var c = renderer.domElement;
-			raycaster = new THREE.Raycaster();
-			mouse = new THREE.Vector2();
-
-			this.onRender();
-
-			document.getElementById("canvas").appendChild(c);
+			this.animate();
 		},
 
 		onCanvasMouseDown: function onCanvasMouseDown(e){
@@ -112,13 +119,14 @@
 
 				geometry.scale.set( 0.5, 0.5, 0.5 );
 				
-				geometry.position.set( m.posx, m.posy, m.posz);
+				geometry.position.set( Byob.Robot.body[m.type][0], Byob.Robot.body[m.type][1], Byob.Robot.body[m.type][2]);
 				
 				console.log(geometry);
 				scene.add( geometry );
 				renderer.render( scene , camera );
 				objects.push(geometry.children[0]);
 			}.bind(this));
+			controls.update();
 		},
 		
 		onDownload: function onDownload(e) {
@@ -160,7 +168,14 @@
 		    document.body.appendChild(element);
 		},
 
+		animate: function animate() {
+			requestAnimationFrame( animate );
+			controls.update();
+			renderer.render( scene, camera );
+		},
+
 		onRender: function onRender() {
+			controls.update();
 			renderer.render( scene, camera );
 		}
 	});

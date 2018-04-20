@@ -61,10 +61,11 @@ var Byob = (function (Backbone, Marionette) {
 			posy: 15,
 			posz: 0,
 			downloadLink: 'obj/IronGiantBody.obj',
-			rArm: [],
-			rLeg: [],
-			lArm: [],
-			lLeg: []
+			rArm: [-5,10,0],
+			rLeg: [-2.5,10,0],
+			lArm: [5,18,0],
+			lLeg: [2.5,10,0],
+			head: [0,19,0]
 		});
 		App.Robot.lArm = new Byob.Models.RobotPart({
 			type: 'lArm',
