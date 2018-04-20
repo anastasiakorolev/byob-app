@@ -86,7 +86,7 @@ var Byob = (function (Backbone, Marionette) {
 			name: 'Iron Giant',
 			src: 'models/RightArmObj_Positioned.json',
 			srcCentered: 'models/RightArmObjCentered.json',
-			srcRot: 'models/LeftArmObj_Positioned_Rot.json',
+			srcRot: 'models/RightArmObj_Positioned_Rot.json',
 			scale: 0.5,
 			posx: -5,
 			posy: 18,
