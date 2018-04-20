@@ -156,6 +156,7 @@
 		onDownload: function onDownload(e) {
 			var downloadLinks = [];
 			console.log(Byob.Robot);
+			var zip = new JSZip();
 			_.each(Byob.Robot, function(m) {
 				console.log(m);
 				if (m) {
@@ -165,22 +166,27 @@
 					if (m.attributes.name === 'Iron Giant' && m.attributes.type === 'head') {
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
-						downloadLinks.push(m.attributes.downloadLink[0]);
-						downloadLinks.push(m.attributes.downloadLink[1]);
+						// downloadLinks.push(m.attributes.downloadLink[0]);
+						zip.add(m.attributes.downloadLink[0], m.name);
+						// downloadLinks.push(m.attributes.downloadLink[1]);
+						zip.add(m.attributes.downloadLink[1], m.name);
 					} else {
 						console.log('add link');
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
-						downloadLinks.push(m.attributes.downloadLink);
+						// downloadLinks.push(m.attributes.downloadLink);
+						zip.add(m.attributes.downloadLink, m.name);
 					}
 				}
 			});
 			
 			console.log(downloadLinks);
+			content = zip.generate();
+			location.href="data:application/zip;base64," + content;
 
-			_.each(downloadLinks, function(link) {
-				this.createIframeForDownloadHandler(link);
-			}.bind(this));
+			// _.each(downloadLinks, function(link) {
+			// 	this.createIframeForDownloadHandler(link);
+			// }.bind(this));
 
 		},
 
