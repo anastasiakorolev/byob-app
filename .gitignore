@@ -3,7 +3,6 @@ bin
 public/dist
 .idea
 .project
-node_modules
 
 public/dev.html
 byob.sublime-workspace
