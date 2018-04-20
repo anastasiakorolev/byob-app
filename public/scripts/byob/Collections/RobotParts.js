@@ -140,7 +140,7 @@
 				srcCentered: 'models/WALLE_E_LEFT_LEG_HOLLOW_1MM.json',
 				scale: 1,
 				posx: 0,
-				posy: 15,
+				posy: 10,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_LEFT_LEG_HOLLOW_1MM.obj'
 			}));
@@ -152,7 +152,7 @@
 				srcCentered: 'models/WALLE_E_RIGHT_LEG_HOLLOW_1MM.json',
 				scale: 1,
 				posx: 0,
-				posy: 15,
+				posy: 10,
 				posz: 0,
 				downloadLink: 'obj/WALLE_E_RIGHT_LEG_HOLLOW_1MM.obj'
 			}));

@@ -42,12 +42,12 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'head',
 			typeName: 'Head',
 			name: 'Iron Giant',
-			src: 'models/IronGiantFullHead.json',
+			src: 'models/IronGiantFullHead_Positioned.json',
 			srcCentered: 'models/IronGiantFullHeadCentered.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 15,
-			posz: 0,
+			posy: 22,
+			posz: 3,
 			downloadLink: ['obj/IronGiantHead.obj', 'obj/IronGiantJaw.obj']
 		});
 		App.Robot.body = new Byob.Models.RobotPart({
@@ -70,11 +70,11 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'lArm',
 			typeName: 'Left Arm',
 			name: 'Iron Giant',
-			src: 'models/leftArmObj.json',
+			src: 'models/leftArmObj_Positioned.json',
 			srcCentered: 'models/LeftArmObjCentered.json',
 			scale: 0.5,
-			posx: 0,
-			posy: 15,
+			posx: 5,
+			posy: 18,
 			posz: 0,
 			downloadLink: 'obj/LeftArmObj.obj'
 		});
@@ -82,11 +82,11 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'rArm',
 			typeName: 'Right Arm',
 			name: 'Iron Giant',
-			src: 'models/rightArmObj.json',
+			src: 'models/rightArmObj.json_Positioned',
 			srcCentered: 'models/RightArmObjCentered.json',
 			scale: 0.5,
-			posx: 0,
-			posy: 15,
+			posx: 5,
+			posy: 18,
 			posz: 0,
 			downloadLink: 'obj/RightArmObj.obj'
 		});
@@ -94,10 +94,10 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'lLeg',
 			typeName: 'Left Leg',
 			name: 'Iron Giant',
-			src: 'models/leftLegObj.json',
+			src: 'models/leftLegObj_Positioned.json',
 			srcCentered: 'models/LeftLegObjCentered.json',
 			scale: 0.5,
-			posx: 0,
+			posx: 5,
 			posy: 15,
 			posz: 0,
 			downloadLink: 'obj/LeftLegObj.obj'
@@ -106,10 +106,10 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'rLeg',
 			typeName: 'Right Leg',
 			name: 'Iron Giant',
-			src: 'models/rightLegObj.json',
+			src: 'models/rightLegObj_Positioned.json',
 			srcCentered: 'models/RightLegObjCentered.json',
 			scale: 0.5,
-			posx: 0,
+			posx: 5,
 			posy: 15,
 			posz: 0,
 			downloadLink: 'obj/RightLegObj.obj'

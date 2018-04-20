@@ -21,7 +21,7 @@ this["JST"]["part_viewer"] = Handlebars.template({"1":function(container,depth0,
 
   return "<div class=\"selection-title\">\n<div class=\"choose\">Choose your <p class=\"part\">"
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"title","hash":{},"data":data}) : helper)))
-    + "</p>:</div>\n</div>\n<img class=\"arrow left\" src=\"images/leftArrow.png\" style=\"width: 60px;\" value=\"previous\"/>\n<img class=\"arrow right\" src=\"images/rightArrow.png\" style=\"width: 60px;\" value=\"next\"/>\n<button class=\"button part-selection-button\">Update Robot</button>\n<div id=\"mini-canvas-container\"></div>\n";
+    + "</p>:</div>\n</div>\n<img class=\"arrow left\" src=\"images/leftArrow.png\" style=\"width: 60px;\" value=\"previous\"/>\n<img class=\"arrow right\" src=\"images/rightArrow.png\" style=\"width: 60px;\" value=\"next\"/>\n<button class=\"button wirefram\">Wireframe</button>\n<button class=\"button part-selection-button\">Update Robot</button>\n<div id=\"mini-canvas-container\"></div>\n";
 },"3":function(container,depth0,helpers,partials,data) {
     var helper;
 
