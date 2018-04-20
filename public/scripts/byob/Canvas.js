@@ -103,11 +103,12 @@
 			var src = m.src;
 			console.log(Byob.Robot.body.attributes.name);
 			if (Byob.Robot.body.attributes.name !== 'Iron Giant') {
-				console.log(m.partType);
+				console.log(m.type);
 				console.log(m.name);
 				if ((m.type === 'lArm' || m.type === 'rArm') && m.name === 'Iron Giant') {
 					console.log(src);
 					src = m.srcRot;
+					console.log(m.srcRot)
 					console.log(src);
 				}
 			}
