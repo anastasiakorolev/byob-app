@@ -172,7 +172,9 @@
 		},
 
 		switchToWireframe: function switchToWireframe() {
-			scene.children[2].material.wireframe = !scene.children[2].material.wireframe;
+			console.log(scene.children[2]);
+			console.log(scene.children[2].children[0].material);
+			scene.children[2].children[0].material.wireframe = !scene.children[2].material.wireframe;
 			renderer.render( scene, camera );
 		},
 
