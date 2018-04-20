@@ -46,7 +46,7 @@ var Byob = (function (Backbone, Marionette) {
 			srcCentered: 'models/IronGiantFullHeadCentered.json',
 			scale: 0.5,
 			posx: 0,
-			posy: 22,
+			posy: 19,
 			posz: 3,
 			downloadLink: ['obj/IronGiantHead.obj', 'obj/IronGiantJaw.obj']
 		});
@@ -82,10 +82,10 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'rArm',
 			typeName: 'Right Arm',
 			name: 'Iron Giant',
-			src: 'models/RightArmObj.json_Positioned',
+			src: 'models/RightArmObj_Positioned.json',
 			srcCentered: 'models/RightArmObjCentered.json',
 			scale: 0.5,
-			posx: 5,
+			posx: -5,
 			posy: 18,
 			posz: 0,
 			downloadLink: 'obj/RightArmObj.obj'
@@ -97,8 +97,8 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/LeftLegObj_Positioned.json',
 			srcCentered: 'models/LeftLegObjCentered.json',
 			scale: 0.5,
-			posx: 5,
-			posy: 15,
+			posx: 2.5,
+			posy: 10,
 			posz: 0,
 			downloadLink: 'obj/LeftLegObj.obj'
 		});
@@ -109,8 +109,8 @@ var Byob = (function (Backbone, Marionette) {
 			src: 'models/RightLegObj_Positioned.json',
 			srcCentered: 'models/RightLegObjCentered.json',
 			scale: 0.5,
-			posx: 5,
-			posy: 15,
+			posx: -2.5,
+			posy: 10,
 			posz: 0,
 			downloadLink: 'obj/RightLegObj.obj'
 		});
