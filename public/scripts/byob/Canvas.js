@@ -168,15 +168,15 @@
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
 						// downloadLinks.push(m.attributes.downloadLink[0]);
-						zip.push(m.attributes.downloadLink[0], m.name);
+						zip.files.push(m.attributes.downloadLink[0], m.name);
 						// downloadLinks.push(m.attributes.downloadLink[1]);
-						zip.push(m.attributes.downloadLink[1], m.name);
+						zip.files.push(m.attributes.downloadLink[1], m.name);
 					} else {
 						console.log('add link');
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
 						// downloadLinks.push(m.attributes.downloadLink);
-						zip.push(m.attributes.downloadLink, m.name);
+						zip.files.push(m.attributes.downloadLink, m.name);
 					}
 				}
 			});
