@@ -168,20 +168,20 @@
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
 						downloadLinks.push(m.attributes.downloadLink[0], m.name);
-						// zip.files.push(m.attributes.downloadLink[0], m.name);
+						zip.file(m.attributes.downloadLink[0], m.name);
 						downloadLinks.push(m.attributes.downloadLink[1], m.name);
-						// zip.files.push(m.attributes.downloadLink[1], m.name);
+						zip.file(m.attributes.downloadLink[1], m.name);
 					} else {
 						console.log('add link');
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
 						downloadLinks.push(m.attributes.downloadLink, m.name);
-						// zip.files.push(m.attributes.downloadLink, m.name);
+						zip.file(m.attributes.downloadLink, m.name);
 					}
 				}
 			});
 			
-			zip.files = downloadLinks;
+			// zip.files = downloadLinks;
 			console.log(downloadLinks);
 			zip.generateAsync({type:"uint8array"}).then(function (content) {
 				location.href="data:application/zip;base64," + content;
