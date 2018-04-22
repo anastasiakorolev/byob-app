@@ -167,15 +167,15 @@
 					if (m.attributes.name === 'Iron Giant' && m.attributes.type === 'head') {
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
-						downloadLinks.add(m.attributes.downloadLink[0], m.name);
+						downloadLinks.push(m.attributes.downloadLink[0], m.name);
 						// zip.files.push(m.attributes.downloadLink[0], m.name);
-						downloadLinks.add(m.attributes.downloadLink[1], m.name);
+						downloadLinks.push(m.attributes.downloadLink[1], m.name);
 						// zip.files.push(m.attributes.downloadLink[1], m.name);
 					} else {
 						console.log('add link');
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
-						downloadLinks.add(m.attributes.downloadLink, m.name);
+						downloadLinks.push(m.attributes.downloadLink, m.name);
 						// zip.files.push(m.attributes.downloadLink, m.name);
 					}
 				}
