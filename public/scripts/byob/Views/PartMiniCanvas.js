@@ -142,7 +142,7 @@
 				geometry.position.set( 0, 0, 0 );
 
 				if (this.color) {
-					geometry.children[0].material = new THREE.MeshPhongMaterial({color: this.color, wireframe:false, shininess: 1});
+					geometry.children[0].material = new THREE.MeshPhongMaterial({color: this.color, wireframe:false, shininess: 1, side: THREE.DoubleSide});
 				}
 				
 				console.log(scene);
