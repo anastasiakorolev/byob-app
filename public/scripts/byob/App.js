@@ -97,13 +97,13 @@ var Byob = (function (Backbone, Marionette) {
 			type: 'lLeg',
 			typeName: 'Left Leg',
 			name: 'Iron Giant',
-			src: 'models/LeftLegObj_Positioned_Merged.json',
+			src: 'models/LeftLegObj_Positioned_MERGED.json',
 			srcCentered: 'models/LeftLegObjCentered_MERGED.json',
 			scale: 0.5,
 			posx: 2.5,
 			posy: 10,
 			posz: 0,
-			downloadLink: 'obj/LeftLegObj_Positioned_Merged.obj'
+			downloadLink: 'obj/LeftLegObj_Positioned_MERGED.obj'
 		});
 		App.Robot.rLeg = new Byob.Models.RobotPart({
 			type: 'rLeg',
