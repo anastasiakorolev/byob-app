@@ -183,7 +183,7 @@
 			
 			zip.files = downloadLinks;
 			console.log(downloadLinks);
-			zip.generateAsync().then(function (content) {
+			zip.generateAsync({type:"uint8array"}).then(function (content) {
 				location.href="data:application/zip;base64," + content;
 			});
 
