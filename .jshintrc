@@ -5,6 +5,7 @@
     "Backbone":   true,
     "Marionette": true,
     "Byob":       true,
+    "JSZip":      true,
     "JST":        true,
     "_":          true,
     "THREE":      true
