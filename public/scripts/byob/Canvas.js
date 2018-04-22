@@ -154,55 +154,39 @@
 		},
 		
 		onDownload: function onDownload(e) {
-			var downloadLinks = [];
-			console.log(Byob.Robot);
 			var zip = new JSZip();
 			_.each(Byob.Robot, function(m) {
-				console.log(m);
 				if (m) {
-					console.log('model exists');
-					console.log(m.name);
-					console.log(m.type);
-					console.log(zip);
 					if (m.attributes.name === 'Iron Giant' && m.attributes.type === 'head') {
-						console.log(m.attributes);
-						console.log(m.attributes.downloadLink);
-						downloadLinks.push(m.attributes.downloadLink[0], m.name);
 						zip.file(m.attributes.downloadLink[0], m.name);
-						downloadLinks.push(m.attributes.downloadLink[1], m.name);
 						zip.file(m.attributes.downloadLink[1], m.name);
 					} else {
-						console.log('add link');
-						console.log(m.attributes);
-						console.log(m.attributes.downloadLink);
-						downloadLinks.push(m.attributes.downloadLink, m.name);
 						zip.file(m.attributes.downloadLink, m.name);
 					}
 				}
 			});
-			
-			// zip.files = downloadLinks;
-			console.log(downloadLinks);
 			zip.generateAsync({type:"base64"}).then(function (base64) {
 		        window.location = "data:application/zip;base64," + base64;
 		    });
 
-			// zip.generateAsync({type:"blob"}).then(function (blob) {
-			//     saveAs(blob, "hello.zip");
-			// });
-
-			// _.each(downloadLinks, function(link) {
-			// 	this.createIframeForDownloadHandler(link);
-			// }.bind(this));
-
 		},
 
-		createIframeForDownloadHandler: function createIframeForDownloadHandler(fileId) {
-		    var element = document.createElement("iframe");
-		    element.setAttribute('id', 'myframe' + fileId);
-		    element.setAttribute('style', 'display:none;');
-		    element.setAttribute('src', fileId);
-		    document.body.appendChild(element);
+		onDownloadAll: function onDownloadAll(e) {
+			var zip = new JSZip();
+			_.each(this.collection.models, function(m) {
+				if (m) {
+					if (m.attributes.name === 'Iron Giant' && m.attributes.type === 'head') {
+						zip.file(m.attributes.downloadLink[0], m.name);
+						zip.file(m.attributes.downloadLink[1], m.name);
+					} else {
+						zip.file(m.attributes.downloadLink, m.name);
+					}
+				}
+			});
+			zip.generateAsync({type:"base64"}).then(function (base64) {
+		        window.location = "data:application/zip;base64," + base64;
+		    });
+
 		},
 
 		animate: function animate() {

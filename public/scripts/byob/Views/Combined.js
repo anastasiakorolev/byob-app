@@ -20,6 +20,9 @@
 			},
 			'click .downloadFiles': function (e) {
 				this.canvas.onDownload(e);
+			},
+			'click .downloadAllFiles': function (e) {
+				this.canvas.onDownloadAll(e);
 			}
 		},
 

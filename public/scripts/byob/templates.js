@@ -1,7 +1,7 @@
 this["JST"] = this["JST"] || {};
 
 this["JST"]["combined"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div id=\"canvas\"></div>\n\n<button class=\"downloadFiles\">Download Print Files</button>";
+    return "<div id=\"canvas\"></div>\n\n<button class=\"downloadFiles\">Download Print Files</button>\n<button class=\"downloadAllFiles\">Download All</button>";
 },"useData":true});
 
 this["JST"]["footer"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

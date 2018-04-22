@@ -111,10 +111,9 @@ body {
 	right: 55%;
 }
 
-.downloadFiles {
+.downloadFiles, .downloadAllFiles {
 	position: absolute;
 	top: 2%;
-	left: 2%;
 	background-color: lightgrey;
 	border-radius: 3px;
 	width: 175px;
@@ -126,4 +125,10 @@ body {
 		cursor: pointer;
 		background-color: steelblue;
 	}
+}
+.downloadFiles {
+	left: 2%;
+}
+.downloadAllFiles {
+	left: 30%;
 }
