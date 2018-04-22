@@ -54,10 +54,10 @@
 				type: 'lLeg',
 				typeName: 'Left Leg',
 				name: 'Iron Giant',
-				src: 'models/LeftLegObj_Positioned.json',
-				srcCentered: 'models/LeftLegObjCentered.json',
+				src: 'models/LeftLegObj_Positioned_MERGED.json',
+				srcCentered: 'models/LeftLegObjCentered_MERGED.json',
 				scale: 0.8,
-				downloadLink: 'obj/LeftLegObj.obj'
+				downloadLink: 'obj/LeftLegObj_Positioned_MERGED.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'rLeg',
@@ -160,19 +160,19 @@
 				type: 'lArm',
 				typeName: 'Left Arm',
 				name: 'Plankton Bot',
-				src: 'models/CylinderBotLeftArm_Positioned.json',
-				srcCentered: 'models/CylinderBotLeftArm.json',
+				src: 'models/CylinderBotLeftArm_Positioned_Merged.json',
+				srcCentered: 'models/CylinderBotLeftArm_MERGED.json',
 				scale: 1.2,
-				downloadLink: 'obj/CylinderBotLeftArm.obj'
+				downloadLink: 'obj/CylinderBotLeftArm_Positioned_Merged.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'lLeg',
 				typeName: 'Left Leg',
 				name: 'Plankton Bot',
-				src: 'models/CylinderBotLeftLeg_Positioned.json',
-				srcCentered: 'models/CylinderBotLeftLeg.json',
+				src: 'models/CylinderBotLeftLeg_Positioned_MERGED.json',
+				srcCentered: 'models/CylinderBotLeftLeg_Merged.json',
 				scale: 1.2,
-				downloadLink: 'obj/CylinderBotLeftLeg.obj'
+				downloadLink: 'obj/CylinderBotLeftLeg_MERGED.obj'
 			}));
 			this.add(new Byob.Models.RobotPart({
 				type: 'rArm',
@@ -187,10 +187,10 @@
 				type: 'rLeg',
 				typeName: 'Right Leg',
 				name: 'Plankton Bot',
-				src: 'models/CylinderBotRightLeg_Positioned.json',
-				srcCentered: 'models/CylinderBotRightLeg.json',
+				src: 'models/CylinderBotRightLeg_Positioned_MERGED.json',
+				srcCentered: 'models/CylinderBotRightLeg_Merged.json',
 				scale: 1.2,
-				downloadLink: 'obj/CylinderBotRightLeg.obj'
+				downloadLink: 'obj/CylinderBotRightLeg_MERGED.obj'
 			}));
 		},
 
