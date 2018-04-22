@@ -154,7 +154,7 @@
 		},
 		
 		onDownload: function onDownload(e) {
-			var downloadLinks = [];
+			var downloadLinks = {};
 			console.log(Byob.Robot);
 			var zip = new JSZip();
 			_.each(Byob.Robot, function(m) {
@@ -167,20 +167,21 @@
 					if (m.attributes.name === 'Iron Giant' && m.attributes.type === 'head') {
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
-						// downloadLinks.push(m.attributes.downloadLink[0]);
-						zip.files.push(m.attributes.downloadLink[0], m.name);
-						// downloadLinks.push(m.attributes.downloadLink[1]);
-						zip.files.push(m.attributes.downloadLink[1], m.name);
+						downloadLinks.add(m.attributes.downloadLink[0], m.name);
+						// zip.files.push(m.attributes.downloadLink[0], m.name);
+						downloadLinks.add(m.attributes.downloadLink[1], m.name);
+						// zip.files.push(m.attributes.downloadLink[1], m.name);
 					} else {
 						console.log('add link');
 						console.log(m.attributes);
 						console.log(m.attributes.downloadLink);
-						// downloadLinks.push(m.attributes.downloadLink);
-						zip.files.push(m.attributes.downloadLink, m.name);
+						downloadLinks.add(m.attributes.downloadLink, m.name);
+						// zip.files.push(m.attributes.downloadLink, m.name);
 					}
 				}
 			});
 			
+			zip.files = downloadLinks;
 			console.log(downloadLinks);
 			content = zip.generate();
 			location.href="data:application/zip;base64," + content;
