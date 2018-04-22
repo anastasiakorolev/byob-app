@@ -183,8 +183,9 @@
 			
 			zip.files = downloadLinks;
 			console.log(downloadLinks);
-			content = zip.generate();
-			location.href="data:application/zip;base64," + content;
+			zip.generateAsync().then(function (content) {
+				location.href="data:application/zip;base64," + content;
+			});
 
 			// _.each(downloadLinks, function(link) {
 			// 	this.createIframeForDownloadHandler(link);
