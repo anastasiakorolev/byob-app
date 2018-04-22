@@ -154,7 +154,7 @@
 		},
 		
 		onDownload: function onDownload(e) {
-			var downloadLinks = {};
+			var downloadLinks = [];
 			console.log(Byob.Robot);
 			var zip = new JSZip();
 			_.each(Byob.Robot, function(m) {
