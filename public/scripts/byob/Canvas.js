@@ -183,9 +183,14 @@
 			
 			// zip.files = downloadLinks;
 			console.log(downloadLinks);
-			zip.generateAsync({type:"uint8array"}).then(function (content) {
-				location.href="data:application/zip;base64," + content;
+			zip.generateAsync({type:"blob"}).then(function (blob) {
+				saveAs(blob, "robotParts.zip");
+				// location.href="data:application/zip;base64," + content;
 			});
+			
+			// zip.generateAsync({type:"blob"}).then(function (blob) {
+			//     saveAs(blob, "hello.zip");
+			// });
 
 			// _.each(downloadLinks, function(link) {
 			// 	this.createIframeForDownloadHandler(link);
