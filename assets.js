@@ -15,7 +15,8 @@ var vendorScripts = [
   'scripts/vendor/bootstrap.js',
   'scripts/vendor/bootstrap-multiselect.js',
   'scripts/vendor/three.min.js',
-  'scripts/vendor/TrackballControls.js'
+  'scripts/vendor/TrackballControls.js',
+  'scripts/vendor/jszip.js'
 ];
 
 var byobScripts = [
